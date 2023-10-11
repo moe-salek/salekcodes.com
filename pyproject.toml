@@ -1,0 +1,79 @@
+[tool.black]
+preview = true
+line-length = 100
+skip-string-normalization = true
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \venv
+  | \env
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black:
+  | blib2to3
+  | tests/data
+  | profiling
+  # Custom files/folders:
+  | \.coverage
+  | migrations
+  | \.pytest_cache
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+testpaths = "./tests"
+DJANGO_SETTINGS_MODULE = "tests.test_settings"
+addopts = "--strict-markers"
+filterwarnings = ["ignore:.*pkg_resources:DeprecationWarning"]
+
+[tool.coverage.run]
+omit = [
+    "conftest.py",
+    ".mypy_cache/*",
+    ".pytest_cache/*",
+    ".tox/*",
+    "staticfiles/*",
+    "venv/*",
+    "env/*",
+    ".venv/*",
+    ".env/*",
+    ".git/*",
+    ".eggs/*",
+]
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+exclude = [
+    '.venv',
+    'venv',
+    'env',
+    '.mypy_cache',
+    '.pytest_cache',
+    '.tox',
+    'manage.py',
+]
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+show_error_codes = true
+disallow_untyped_calls = true
+disallow_untyped_defs = false
+check_untyped_defs = false
+strict = false
+
+[[tool.mypy.overrides]]
+module = ["decouple", "celery", "whitenoise"]
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "salekcodes.settings"
