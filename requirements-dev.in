@@ -1,0 +1,13 @@
+-c requirements.txt
+tox
+flake8
+coverage
+pytest
+pytest-mock
+pytest-django
+pytest-celery
+PyYAML
+mypy
+django-stubs
+djangorestframework-stubs
+freezegun

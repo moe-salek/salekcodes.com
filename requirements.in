@@ -1,0 +1,11 @@
+Django
+djangorestframework
+Markdown
+django-filter
+python-decouple
+celery
+django-celery-results
+django-celery-beat
+SQLAlchemy
+whitenoise
+gunicorn
