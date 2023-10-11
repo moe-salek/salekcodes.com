@@ -2,7 +2,7 @@
 preview = true
 line-length = 100
 skip-string-normalization = true
-exclude = '''
+force-exclude = '''
 /(
     \.eggs
   | \.git
@@ -10,8 +10,8 @@ exclude = '''
   | \.mypy_cache
   | \.tox
   | \.venv
-  | \venv
-  | \env
+  | venv
+  | env
   | _build
   | buck-out
   | build
@@ -24,6 +24,7 @@ exclude = '''
   | \.coverage
   | migrations
   | \.pytest_cache
+  | ./manage.py
 )/
 '''
 
@@ -77,3 +78,6 @@ ignore_missing_imports = true
 
 [tool.django-stubs]
 django_settings_module = "salekcodes.settings"
+
+[tool.typos]
+files.extend-exclude = [".gitignore"]

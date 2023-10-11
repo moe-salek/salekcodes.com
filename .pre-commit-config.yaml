@@ -8,17 +8,18 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: double-quote-string-fixer
+        exclude: manage.py
       - id: check-builtin-literals
-        args: [ --no-allow-dict-kwargs ]
+        args: [--no-allow-dict-kwargs]
       - id: check-merge-conflict
       - id: debug-statements
       - id: mixed-line-ending
-        args: [ --fix=lf ]
+        args: [--fix=lf]
       - id: name-tests-test
-        args: [ --pytest-test-first ]
+        args: [--pytest-test-first]
       - id: check-json
       - id: pretty-format-json
-        args: [ --autofix ]
+        args: [--autofix]
       - id: check-yaml
       - id: check-toml
 
@@ -26,7 +27,6 @@ repos:
     rev: v1.16.18
     hooks:
       - id: typos
-        exclude: '.gitignore'
 
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: 1.2.0
@@ -37,7 +37,7 @@ repos:
     rev: 1.15.0
     hooks:
       - id: django-upgrade
-        args: [ --target-version, "4.2" ]
+        args: [--target-version, "4.2"]
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.15.0
