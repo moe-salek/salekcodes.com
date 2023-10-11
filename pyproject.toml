@@ -77,7 +77,7 @@ module = ["decouple", "celery", "whitenoise"]
 ignore_missing_imports = true
 
 [tool.django-stubs]
-django_settings_module = "salekcodes.settings"
+django_settings_module = "tests.test_settings"
 
 [tool.typos]
 files.extend-exclude = [".gitignore"]
