@@ -1,0 +1,60 @@
+default_language_version:
+  python: python3.11
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: double-quote-string-fixer
+      - id: check-builtin-literals
+        args: [ --no-allow-dict-kwargs ]
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: mixed-line-ending
+        args: [ --fix=lf ]
+      - id: name-tests-test
+        args: [ --pytest-test-first ]
+      - id: check-json
+      - id: pretty-format-json
+        args: [ --autofix ]
+      - id: check-yaml
+      - id: check-toml
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.16.18
+    hooks:
+      - id: typos
+
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: 1.2.0
+    hooks:
+      - id: pyproject-fmt
+
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: 1.15.0
+    hooks:
+      - id: django-upgrade
+        args: [ --target-version, "4.2" ]
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.15.0
+    hooks:
+      - id: pyupgrade
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
