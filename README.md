@@ -1,7 +1,7 @@
 # SalekCodes
 
 [![main](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml/badge.svg)](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml)
-![GitHub](https://img.shields.io/github/license/MohammadSalek/salekcodes.com?color=cornflowerblue)
+![GitHub](https://img.shields.io/github/license/mohammadsalek/salekcodes.com?color=cornflowerblue)
 
 Welcome to SalekCodes project!
 
