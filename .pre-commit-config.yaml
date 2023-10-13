@@ -59,3 +59,8 @@ repos:
     rev: 6.1.0
     hooks:
       - id: flake8
+
+ci:
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
