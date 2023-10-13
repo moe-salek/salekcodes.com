@@ -1,6 +1,7 @@
 # SalekCodes.com
 
 [![main](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml/badge.svg)](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml)
+![GitHub](https://img.shields.io/github/license/MohammadSalek/salekcodes.com?color=cornflowerblue)
 
 Welcome to **SalekCodes**! This open-source endeavor, dedicated to my personal website, combines the powerful backend capabilities of **Django** with the dynamic and interactive frontend features of **Vue**. The project is currently under active development, aiming to deliver a sophisticated and engaging web experience that will be unveiled soon.
 
