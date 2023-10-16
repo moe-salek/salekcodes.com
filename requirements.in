@@ -3,3 +3,4 @@ python-decouple
 djangorestframework
 markdown
 django-filter
+daphne
