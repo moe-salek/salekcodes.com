@@ -3,9 +3,9 @@
 [![main](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml/badge.svg)](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml)
 [![GitHub](https://img.shields.io/github/license/mohammadsalek/salekcodes.com?color=cornflowerblue)](https://github.com/MohammadSalek/salekcodes.com/blob/main/LICENSE)
 
-Welcome to **SalekCodes** project!
+**Welcome to SalekCodes**!
 
-This open-source endeavor, dedicated to my personal website, combines the powerful backend capabilities of [Django](https://www.djangoproject.com) with the dynamic and interactive frontend features of [Vue](https://vuejs.org). The project is **currently under active development**, aiming to deliver a sophisticated and engaging web experience that will be unveiled soon.
+SalekCodes is an open-source personal website project currently undergoing active development. It combines the powerful backend capabilities of [Django](https://www.djangoproject.com) with the dynamic and interactive frontend features of [Vue](https://vuejs.org) and [Tailwind](https://tailwindcss.com). The project strives to offer a simple yet visually appealing web experience, which will be unveiled soon!
 
 ## Run locally using docker
 
