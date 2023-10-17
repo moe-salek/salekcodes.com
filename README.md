@@ -9,15 +9,17 @@ SalekCodes is an open-source personal website project currently undergoing activ
 
 ## Run locally using docker
 
-1. Build the images:
+1. Create an `.env` file based on the `.env.example` file.
+
+2. Build the images:
 
     `docker compose build`
 
-2. Start the containers:
+3. Start the containers:
 
     `docker compose up`
 
-3. Visit the site:
+4. Visit the site:
 
     [http://localhost:8000/](http://localhost:8000/)
 
