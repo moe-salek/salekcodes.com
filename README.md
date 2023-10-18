@@ -7,6 +7,12 @@
 
 SalekCodes is an open-source personal website project currently undergoing active development. It combines the powerful backend capabilities of [Django](https://www.djangoproject.com) with the dynamic and interactive frontend features of [Vue](https://vuejs.org) and [Tailwind](https://tailwindcss.com). The project strives to offer a simple yet visually appealing web experience, which will be unveiled soon!
 
+## Explore Online
+
+Curious to experience the latest build?
+
+🔗 <http://salekcodes.com>
+
 ## Run locally using docker
 
 1. Create an `.env` file based on the `.env.example` file.
