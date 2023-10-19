@@ -35,4 +35,4 @@ I have chosen not to employ `python-poetry` for package management, citing some 
 
 ## License
 
-[MIT License](https://opensource.org/licenses/MIT) © [Mohammad Salek](https://github.com/MohammadSalek)
+[MIT License](https://github.com/MohammadSalek/salekcodes.com/blob/main/LICENSE) © [Mohammad Salek](https://github.com/MohammadSalek)
