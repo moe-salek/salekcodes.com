@@ -23,8 +23,13 @@ repos:
       - id: check-yaml
       - id: check-toml
 
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+
   - repo: https://github.com/crate-ci/typos
-    rev: v1.16.20
+    rev: typos-dict-v0.11.2
     hooks:
       - id: typos
 
@@ -58,7 +63,7 @@ repos:
         name: isort (python)
 
   - repo: https://github.com/psf/black
-    rev: 23.9.1
+    rev: 23.10.0
     hooks:
       - id: black
 
