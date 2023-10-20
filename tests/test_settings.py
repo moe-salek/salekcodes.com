@@ -3,4 +3,4 @@ from salekcodes.settings import SECRET_KEY
 
 del SECRET_KEY
 
-SECRET_KEY = 'super_secret_key'
+SECRET_KEY = 'super_secret_key'  # pragma: allowlist secret

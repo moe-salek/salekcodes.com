@@ -8,17 +8,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
         python-version: [3.11]
-
-    env:
-      DEBUG: True
-      SECRET_KEY: super_secret_key
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -31,3 +25,6 @@ jobs:
     - name: Run Tests
       run: |
         tox -r
+      env:
+        DEBUG: True
+        SECRET_KEY: ${{ secrets.DEV_SECRET_KEY }}
