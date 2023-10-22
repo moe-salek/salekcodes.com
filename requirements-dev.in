@@ -1,8 +1,12 @@
+# constraints:
 -c requirements.txt
+# environment:
 tox
+# testing:
 coverage
 pytest
 pytest-mock
 pytest-django
+# mypy and stubs:
 mypy
 django-stubs

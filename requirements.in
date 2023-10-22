@@ -1,7 +1,10 @@
 Django
+# env vars:
 python-decouple
+# drf:
 djangorestframework
 markdown
 django-filter
-daphne
+# server:
 whitenoise
+daphne
