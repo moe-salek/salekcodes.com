@@ -1,6 +1,6 @@
 [tool.black]
 preview = true
-line-length = 100
+line-length = 120
 skip-string-normalization = true
 force-exclude = '''
 /(
