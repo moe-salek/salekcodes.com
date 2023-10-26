@@ -18,7 +18,7 @@ class UserManager(BaseUserManager):
         # create user:
         normalized_email = self.normalize_email(email)
         user = self.model(email=normalized_email, **extra_fields)
-        user.set_password(password)
+        user.set_password(password)  # type: ignore[attr-defined]
         user.save(using=self._db)
 
         return user
