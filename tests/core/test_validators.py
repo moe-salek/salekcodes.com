@@ -1,7 +1,7 @@
 import pytest
 from django.core.exceptions import ValidationError
 
-from core.validators import validate_password
+from core.validators import validate_email, validate_password
 
 
 @pytest.mark.django_db
@@ -52,5 +52,40 @@ class TestCoreCustomValidators:
 
         validate_password(password)
 
+    @pytest.mark.parametrize(
+        'invalid_email',
+        [
+            None,
+            False,
+            True,
+            '',
+            ' ',
+            'test',
+            'test@',
+            '@test',
+            '@test.com',
+            'test@test',
+            'test@test.',
+            'test.com',
+            'test@test@test.com',
+            '@test@test.com',
+            'test@test@test.com',
+            0,
+            123,
+            123.456,
+            {},
+            [],
+            set(),
+        ],
+    )
+    def test_validate_email_invalid(self, invalid_email):
+        with pytest.raises(ValidationError) as err:
+            validate_email(invalid_email)
 
-# TODO: add email validator tests
+        expected_err_msg = ['Email has invalid format or is empty']
+        assert str(err.value) == str(expected_err_msg)
+
+    def test_validate_email_valid(self):
+        email = 'test@test.com'
+
+        validate_email(email)
