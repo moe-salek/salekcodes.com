@@ -8,3 +8,6 @@ django-filter
 # server:
 whitenoise
 daphne
+
+# security:
+twisted>=23.10.0rc1

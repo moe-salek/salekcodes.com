@@ -187,12 +187,12 @@ sqlparse==0.4.4 \
     --hash=sha256:5430a4fe2ac7d0f93e66f1efc6e1338a41884b7ddf2a350cedd20ccc4d9d28f3 \
     --hash=sha256:d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c
     # via django
-twisted==23.8.0 \
-    --hash=sha256:3c73360add17336a622c0d811c2a2ce29866b6e59b1125fd6509b17252098a24 \
-    --hash=sha256:b8bdba145de120ffb36c20e6e071cce984e89fba798611ed0704216fb7f884cd
+twisted==23.10.0rc1 \
+    --hash=sha256:bd34b64223dea0c5a3b6e8cfb5f5384903c8ff4c824c690cebe67d7ff6e2c828 \
+    --hash=sha256:d82834519c57ac8814675a7ee79a6a4c8c292a930de4b2e9601dcdda837558fe
     # via
+    #   -r requirements.in
     #   daphne
-    #   twisted
 txaio==23.1.1 \
     --hash=sha256:aaea42f8aad50e0ecfb976130ada140797e9dcb85fad2cf72b0f37f8cefcb490 \
     --hash=sha256:f9a9216e976e5e3246dfd112ad7ad55ca915606b60b84a757ac769bd404ff704
