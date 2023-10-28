@@ -3,4 +3,18 @@ version: '3.8'
 services:
   web:
     ports:
-      - 80:8000
+      - 8000
+    volumes:
+      - static_volume:/app/staticfiles
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - static_volume:/app/staticfiles
+    depends_on:
+      - web
+
+volumes:
+  static_volume:
