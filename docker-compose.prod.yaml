@@ -8,13 +8,24 @@ services:
       - static_volume:/app/staticfiles
 
   nginx:
-    build: ./nginx
+    image: nginx:latest
     ports:
       - 80:80
-    volumes:
-      - static_volume:/app/staticfiles
+      - 443:443
     depends_on:
       - web
+    restart: always
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - static_volume:/app/staticfiles/:ro
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
 
 volumes:
   static_volume:
