@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # local APPs:
     'core',
+    'blog',
     # third party APPs:
     'rest_framework',
 ]
