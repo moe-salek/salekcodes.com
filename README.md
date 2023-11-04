@@ -28,7 +28,7 @@ Curious to experience the latest build?
 
 4. Visit the site:
 
-    [http://localhost:8000/](http://localhost:8000/)
+    [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ## Development
 
