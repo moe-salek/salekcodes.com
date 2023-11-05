@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
+from django_quill.fields import QuillField
 
 # region abstract/base
 
@@ -30,7 +31,7 @@ class Post(Base):
 
     author = models.ForeignKey(get_user_model(), on_delete=models.RESTRICT)
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = QuillField()
     tags = models.ManyToManyField('blog.Tag', related_name='posts')
     status = models.CharField(max_length=3, choices=Status.choices, default=Status.DRAFT)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
