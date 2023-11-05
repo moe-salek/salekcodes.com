@@ -1,3 +1,5 @@
+import json
+
 import pytest
 
 from blog.models import Post, Tag
@@ -5,17 +7,20 @@ from blog.models import Post, Tag
 
 @pytest.mark.django_db
 class TestBlogPost:
+    quill_content = json.dumps({'delta': 'test', 'html': '<p>test</p>'})
+
     def test_create_post(self, user):
+        quill_content = self.quill_content
         post = Post.objects.create(
             author=user,
             title='Test Title',
-            content='This is a test content.',
+            content=quill_content,
         )
 
         post_from_db = Post.objects.get(id=post.id)
         assert post_from_db.author == user
         assert post_from_db.title == 'Test Title'
-        assert post_from_db.content == 'This is a test content.'
+        assert post_from_db.content.plain == 'test'
         assert post_from_db.status == Post.Status.DRAFT
         assert post_from_db.slug == 'test-title'
         assert post_from_db.tags.count() == 0
@@ -24,7 +29,7 @@ class TestBlogPost:
         post = Post.objects.create(
             author=user,
             title='Test Title',
-            content='This is a test content.',
+            content=self.quill_content,
         )
         tag1 = Tag.objects.create(name='Test Tag 1')
         tag2 = Tag.objects.create(name='Test Tag 2')
@@ -43,6 +48,6 @@ class TestBlogPost:
         post = Post.objects.create(
             author=user,
             title='Test Title Sample SLUG',
-            content='This is a test content.',
+            content=self.quill_content,
         )
         assert post.slug == 'test-title-sample-slug'
