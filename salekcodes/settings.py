@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'blog',
     # third party APPs:
     'rest_framework',
+    'django_quill',
 ]
 
 MIDDLEWARE = [

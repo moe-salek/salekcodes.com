@@ -8,6 +8,8 @@ django-filter
 # server:
 whitenoise
 daphne
+# rich editor:
+django-quill-editor
 
 # security:
 twisted>=23.10.0rc1
