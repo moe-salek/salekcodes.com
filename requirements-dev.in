@@ -10,3 +10,4 @@ pytest-django
 # mypy and stubs:
 mypy
 django-stubs
+djangorestframework-stubs
