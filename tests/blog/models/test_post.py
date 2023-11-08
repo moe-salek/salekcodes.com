@@ -40,8 +40,8 @@ class TestBlogPost:
 
     def test_post_status(self):
         assert Post.Status.choices == [
-            ('dft', 'Draft'),
-            ('psh', 'Published'),
+            ('draft', 'Draft'),
+            ('pub', 'Published'),
         ]
 
     def test_save_slug(self, user):

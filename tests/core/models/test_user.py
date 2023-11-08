@@ -167,3 +167,9 @@ class TestCoreUser:
         assert created_super_user.is_superuser is True
         assert created_super_user.first_name == kwargs['first_name']
         assert created_super_user.last_name == kwargs['last_name']
+
+    def test_full_name(self):
+        user = self.user_class()
+        user.first_name = 'first'
+        user.last_name = 'last'
+        assert user.full_name == 'first last'
