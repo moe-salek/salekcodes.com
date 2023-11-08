@@ -26,14 +26,14 @@ class Base(models.Model):
 
 class Post(Base):
     class Status(models.TextChoices):
-        DRAFT = 'dft', 'Draft'
-        PUBLISHED = 'psh', 'Published'
+        DRAFT = 'draft', 'Draft'
+        PUBLISHED = 'pub', 'Published'
 
     author = models.ForeignKey(get_user_model(), on_delete=models.RESTRICT)
     title = models.CharField(max_length=255)
     content = QuillField()
     tags = models.ManyToManyField('blog.Tag', related_name='posts')
-    status = models.CharField(max_length=3, choices=Status.choices, default=Status.DRAFT)
+    status = models.CharField(max_length=5, choices=Status.choices, default=Status.DRAFT)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
