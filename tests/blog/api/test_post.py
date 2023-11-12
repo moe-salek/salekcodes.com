@@ -53,15 +53,15 @@ class TestPostList:
 class TestPostRetrieve:
     def test_http_method(self, client, post):
         kwargs = {'id': post.id}
-        response = client.post(reverse('post_retrieve', kwargs=kwargs))
+        response = client.post(reverse('post_detail', kwargs=kwargs))
         assert response.status_code == 405
-        response = client.put(reverse('post_retrieve', kwargs=kwargs))
+        response = client.put(reverse('post_detail', kwargs=kwargs))
         assert response.status_code == 405
-        response = client.patch(reverse('post_retrieve', kwargs=kwargs))
+        response = client.patch(reverse('post_detail', kwargs=kwargs))
         assert response.status_code == 405
-        response = client.delete(reverse('post_retrieve', kwargs=kwargs))
+        response = client.delete(reverse('post_detail', kwargs=kwargs))
         assert response.status_code == 405
-        response = client.get(reverse('post_retrieve', kwargs=kwargs))
+        response = client.get(reverse('post_detail', kwargs=kwargs))
         assert response.status_code == 200
 
     def test_serializer(self):
@@ -72,7 +72,7 @@ class TestPostRetrieve:
 
     def test_retrieve(self, client, post):
         kwargs = {'id': post.id}
-        response = client.get(reverse('post_retrieve', kwargs=kwargs))
+        response = client.get(reverse('post_detail', kwargs=kwargs))
         assert response.status_code == 200
 
         response = response.json()

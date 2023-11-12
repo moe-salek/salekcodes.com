@@ -3,7 +3,9 @@ import json
 import pytest
 from django.contrib.auth import get_user_model
 
-from blog.models import Post
+from blog.models import Post, Tag
+
+# core:
 
 
 @pytest.fixture
@@ -23,6 +25,20 @@ def user(user_kwargs):
     )
 
 
+# blog:
+
+
+@pytest.fixture
+def tag_kwargs():
+    yield {'name': 'test_tag'}
+
+
+@pytest.fixture
+@pytest.mark.django_db
+def tag(tag_kwargs):
+    yield Tag.objects.create(**tag_kwargs)
+
+
 @pytest.fixture
 @pytest.mark.django_db
 def post_kwargs(user):
@@ -35,5 +51,7 @@ def post_kwargs(user):
 
 @pytest.fixture
 @pytest.mark.django_db
-def post(post_kwargs):
-    yield Post.objects.create(**post_kwargs)
+def post(post_kwargs, tag):
+    post = Post.objects.create(**post_kwargs)
+    post.tags.add(tag)
+    yield post
