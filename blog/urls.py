@@ -1,8 +1,12 @@
 from django.urls import path
 
-from blog.views import PostView
+from blog.views import PostView, TagView
 
 urlpatterns = [
-    path('posts/<int:id>/', PostView.as_view(), name='post_retrieve'),
-    path('posts/', PostView.as_view(), name='post_list'),
+    # post:
+    path('posts/<int:id>/', PostView.as_view({'get': 'retrieve'}), name='post_detail'),
+    path('posts/', PostView.as_view({'get': 'list'}), name='post_list'),
+    # tag:
+    path('tags/<int:id>/', TagView.as_view({'get': 'retrieve'}), name='tag_detail'),
+    path('tags/', TagView.as_view({'get': 'list'}), name='tag_list'),
 ]
