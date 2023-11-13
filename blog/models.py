@@ -32,7 +32,7 @@ class Post(Base):
     author = models.ForeignKey(get_user_model(), on_delete=models.RESTRICT)
     title = models.CharField(max_length=255)
     content = QuillField()
-    tags = models.ManyToManyField('blog.Tag', related_name='posts')
+    tags = models.ManyToManyField('blog.Tag', related_name='posts', blank=True)
     status = models.CharField(max_length=5, choices=Status.choices, default=Status.DRAFT)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
 
