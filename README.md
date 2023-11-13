@@ -64,6 +64,10 @@ python@3.11+ and pip
 
 (Refer to `tox l` for more available tox environments.)
 
+### Make
+
+Run `make` to see the available commands.
+
 ## Author Notes
 
 I have chosen not to employ `python-poetry` for package management, citing some various reasons outlined in this video: [some of the reasons](https://youtu.be/Gr9o8MW_pb0).
