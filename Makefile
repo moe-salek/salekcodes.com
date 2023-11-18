@@ -8,6 +8,7 @@ help:
 	@echo "  test                   - Run tests"
 	@echo "  collect                - Collect staticfiles"
 	@echo "  migrate                - Apply database migrations"
+	@echo "  delmi                  - Delete database and migrations"
 	@echo "  suser                  - Create a superuser"
 	@echo "  pip-compile            - Run pip-compile for requirements.txt and requirements-dev.txt"
 	@echo "  pip-compile-upgrade    - Run pip-compile for requirements.txt and requirements-dev.txt with --upgrade"
@@ -24,8 +25,14 @@ collect:
 	$(DJANGO_MANAGE) collectstatic --noinput
 
 migrate:
-	$(DJANGO_MANAGE) makemigrations core blog
+	$(DJANGO_MANAGE) makemigrations core blog resume_cv
 	$(DJANGO_MANAGE) migrate
+
+delmi:
+	rm -r "./core/migrations/"
+	rm -r "./blog/migrations/"
+	rm -r "./resume_cv/migrations/"
+	rm db.sqlite3
 
 suser:
 	$(DJANGO_MANAGE) createsuperuser
