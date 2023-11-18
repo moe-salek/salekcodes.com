@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     # local APPs:
     'core',
     'blog',
+    'resume_cv',
     # third party APPs:
     'rest_framework',
     'django_quill',
