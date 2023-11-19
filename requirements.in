@@ -10,6 +10,8 @@ whitenoise
 daphne
 # rich editor:
 django-quill-editor
+# openapi schema:
+drf-spectacular
 
 # security:
 twisted>=23.10.0rc1
