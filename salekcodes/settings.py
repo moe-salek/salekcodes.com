@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     # third party APPs:
     'rest_framework',
     'django_quill',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -100,3 +101,14 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'SalekCodes API',
+    'DESCRIPTION': 'API for SalekCodes.com website',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
