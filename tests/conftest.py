@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 
 from blog.models import Post, Tag
 
-# core:
+#  region core:
 
 
 @pytest.fixture
@@ -25,7 +25,9 @@ def user(user_kwargs):
     )
 
 
-# blog:
+# endregion
+
+# region blog:
 
 
 @pytest.fixture
@@ -55,3 +57,10 @@ def post(post_kwargs, tag):
     post = Post.objects.create(**post_kwargs)
     post.tags.add(tag)
     yield post
+
+
+# endregion
+
+# region resume_cv
+
+# endregion
