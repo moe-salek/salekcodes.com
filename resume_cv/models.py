@@ -12,25 +12,26 @@ class Skill(Base):
 class Experience(Base):
     company_name = models.CharField(max_length=255)
     job_title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(blank=True, default='')
     start_at = models.DateField()
-    end_at = models.DateField()
+    end_at = models.DateField(blank=True, null=True)
     skills = models.ManyToManyField('resume_cv.Skill', blank=True)
     url = models.URLField(blank=True, default='')
 
 
 class Education(Base):
     organization_name = models.CharField(max_length=255)
-    title = models.CharField(max_length=255, blank=True, default='')
-    degree = models.CharField(max_length=255, blank=True, default='')
+    degree = models.CharField(max_length=255)
+    major = models.CharField(max_length=255)
     description = models.TextField(blank=True, default='')
-    start_at = models.DateField(blank=True, null=True)
+    start_at = models.DateField()
     end_at = models.DateField(blank=True, null=True)
 
 
 class Certificate(Base):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, default='')
+    issuer = models.CharField(max_length=255, blank=True, default='')
     issued_at = models.DateField(blank=True, null=True)
     expire_at = models.DateField(blank=True, null=True)
     url = models.URLField(blank=True, default='')
@@ -45,7 +46,7 @@ class Award(Base):
 
 
 class Contact(Base):
-    email = models.EmailField(blank=True, default='')
+    email = models.EmailField()
     phone = models.CharField(max_length=255, blank=True, default='')
     website = models.URLField(blank=True, default='')
     github = models.URLField(blank=True, default='')
