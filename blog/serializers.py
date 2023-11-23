@@ -9,7 +9,7 @@ from blog.models import Post, Tag
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ['id', 'full_name']
+        fields = ['full_name']
         read_only_fields = fields
 
 
