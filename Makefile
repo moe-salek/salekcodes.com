@@ -13,7 +13,7 @@ help:
 	@echo "  suser                  - Create a superuser"
 	@echo "  pc                     - Run pip-compile for requirements.txt and requirements-dev.txt"
 	@echo "  pcu                    - Run pip-compile for requirements.txt and requirements-dev.txt with --upgrade"
-	@echo "  lpc                    - Run pip-compile for local requirements-local.txt with --upgrade for local development"
+	@echo "  lpcu                   - Run pip-compile for local requirements-local.txt with --upgrade for local development"
 	@echo "  sync                   - Run pip-sync for requirements-local.txt"
 
 run:
@@ -46,7 +46,7 @@ pcu:
 	$(PIP_COMPILE) --generate-hashes --upgrade -o requirements.txt requirements.in
 	$(PIP_COMPILE) --generate-hashes --upgrade -o requirements-dev.txt requirements-dev.in
 
-lpc:
+lpcu:
 	$(PIP_COMPILE) --upgrade -o requirements-local.txt -r requirements.in -r requirements-dev.in
 
 sync:
