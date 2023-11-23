@@ -12,6 +12,8 @@ daphne
 django-quill-editor
 # openapi schema:
 drf-spectacular
+# phone number field:
+django-phonenumber-field[phonenumbers]
 
 # security:
 twisted>=23.10.0rc1
