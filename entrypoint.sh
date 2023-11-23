@@ -1,7 +1,8 @@
 #!/bin/sh
 set -e
 
-make collect &&
-    make migrate
+python manage.py collectstatic --noinput &&
+    python manage.py makemigrations core blog resume_cv &&
+    python manage.py migrate
 
 daphne -b 0.0.0.0 -p 8000 salekcodes.asgi:application
