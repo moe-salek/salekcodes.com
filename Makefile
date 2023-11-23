@@ -1,6 +1,7 @@
 all: help
 
 DJANGO_MANAGE = python manage.py
+PIP_COMPILE = pip-compile --allow-unsafe --strip-extras -q
 
 help:
 	@echo "Available targets:"
@@ -10,9 +11,9 @@ help:
 	@echo "  migrate                - Apply database migrations"
 	@echo "  delmi                  - Delete database and migrations"
 	@echo "  suser                  - Create a superuser"
-	@echo "  pip-compile            - Run pip-compile for requirements.txt and requirements-dev.txt"
-	@echo "  pip-compile-upgrade    - Run pip-compile for requirements.txt and requirements-dev.txt with --upgrade"
-	@echo "  local-pip-compile      - Run pip-compile for local requirements-local.txt with --upgrade for local development"
+	@echo "  pc                     - Run pip-compile for requirements.txt and requirements-dev.txt"
+	@echo "  pcu                    - Run pip-compile for requirements.txt and requirements-dev.txt with --upgrade"
+	@echo "  lpc                    - Run pip-compile for local requirements-local.txt with --upgrade for local development"
 	@echo "  sync                   - Run pip-sync for requirements-local.txt"
 
 run:
@@ -37,16 +38,16 @@ delmi:
 suser:
 	$(DJANGO_MANAGE) createsuperuser
 
-pip-compile:
-	pip-compile --allow-unsafe --strip-extras -q --generate-hashes -o requirements.txt requirements.in
-	pip-compile --allow-unsafe --strip-extras -q --generate-hashes -o requirements-dev.txt requirements-dev.in
+pc:
+	$(PIP_COMPILE) --generate-hashes -o requirements.txt requirements.in
+	$(PIP_COMPILE) --generate-hashes -o requirements-dev.txt requirements-dev.in
 
-pip-compile-upgrade:
-	pip-compile --allow-unsafe --strip-extras -q --generate-hashes --upgrade -o requirements.txt requirements.in
-	pip-compile --allow-unsafe --strip-extras -q --generate-hashes --upgrade -o requirements-dev.txt requirements-dev.in
+pcu:
+	$(PIP_COMPILE) --generate-hashes --upgrade -o requirements.txt requirements.in
+	$(PIP_COMPILE) --generate-hashes --upgrade -o requirements-dev.txt requirements-dev.in
 
-local-pip-compile:
-	pip-compile --allow-unsafe --strip-extras -q --upgrade -o requirements-local.txt -r requirements.in -r requirements-dev.in
+lpc:
+	$(PIP_COMPILE) --upgrade -o requirements-local.txt -r requirements.in -r requirements-dev.in
 
 sync:
 	pip-sync requirements-local.txt
