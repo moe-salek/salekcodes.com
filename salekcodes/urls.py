@@ -11,7 +11,8 @@ urlpatterns = [
     path('', include('core.urls')),
     # blog:
     path('api/blog/', include('blog.urls')),
-    # (resume_cv)
+    # resume_cv:
+    path('api/resume/', include('resume_cv.urls')),
     # admin panel:
     path('admin/', admin.site.urls),
     # drf:
