@@ -66,9 +66,13 @@ class ResumeCV(Base):
     is_public = models.BooleanField(default=False)
 
     @property
-    def first_name(self):
+    def first_name(self) -> str:
         return self.user.first_name
 
     @property
-    def last_name(self):
+    def last_name(self) -> str:
         return self.user.last_name
+
+    @property
+    def full_name(self) -> str:
+        return self.user.full_name
