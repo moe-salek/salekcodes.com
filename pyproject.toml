@@ -73,7 +73,7 @@ check_untyped_defs = false
 strict = false
 
 [[tool.mypy.overrides]]
-module = ["decouple", "django_quill.*"]
+module = ["decouple", "django_quill.*", "phonenumber_field.*"]
 ignore_missing_imports = true
 
 [tool.django-stubs]
