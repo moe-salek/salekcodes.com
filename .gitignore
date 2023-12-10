@@ -654,5 +654,6 @@ $RECYCLE.BIN/
 
 .vscode
 requirements-local.txt
+certbot/*
 
 **/migrations/
