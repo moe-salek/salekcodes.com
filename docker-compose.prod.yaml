@@ -7,10 +7,6 @@ services:
     volumes:
       - static_volume:/app/staticfiles
 
-  frontend:
-    ports:
-      - 8000
-
   nginx:
     image: nginx:latest
     ports:
