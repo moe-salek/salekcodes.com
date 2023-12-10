@@ -19,6 +19,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8000:8000
-    restart: on-failure
+    restart: always
     depends_on:
       - backend
