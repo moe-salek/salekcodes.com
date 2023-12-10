@@ -8,7 +8,7 @@ from drf_spectacular.views import (
 
 urlpatterns = [
     # core:
-    path('', include('core.urls')),
+    # path('', include('core.urls')),
     # blog:
     path('api/blog/', include('blog.urls')),
     # resume_cv:
