@@ -41,6 +41,6 @@ COPY . .
 
 RUN pip install --no-cache-dir --no-cache /wheels/*
 
-EXPOSE 8000
+EXPOSE 8001
 
 CMD ["/bin/bash", "entrypoint.sh"]

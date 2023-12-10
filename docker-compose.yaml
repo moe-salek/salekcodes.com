@@ -1,14 +1,24 @@
 version: '3.8'
 
 services:
-  web:
+  backend:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - .:/app/
     ports:
-      - 8000:8000
+      - 8001:8001
     env_file:
       - ./.env
     restart: on-failure
+
+  frontend:
+    build:
+      context: ./frontend/salekcodes-vue/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    restart: on-failure
+    depends_on:
+      - backend
