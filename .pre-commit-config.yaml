@@ -29,7 +29,7 @@ repos:
       - id: detect-secrets
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.17.2
+    rev: typos-v0.10.21
     hooks:
       - id: typos
 
@@ -46,13 +46,13 @@ repos:
       - id: pyproject-fmt
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.15.0
+    rev: 1.16.0
     hooks:
       - id: django-upgrade
         args: [--target-version, "4.2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
+    rev: v3.15.1
     hooks:
       - id: pyupgrade
 
@@ -63,7 +63,7 @@ repos:
         name: isort (python)
 
   - repo: https://github.com/psf/black
-    rev: 24.1.1
+    rev: 24.2.0
     hooks:
       - id: black
 
