@@ -15,6 +15,7 @@ help:
 	@echo "  pcu                    - Run pip-compile for requirements.txt and requirements-dev.txt with --upgrade"
 	@echo "  lpcu                   - Run pip-compile for local requirements-local.txt with --upgrade for local development"
 	@echo "  sync                   - Run pip-sync for requirements-local.txt"
+	@echo "  update            		- Update requirements using pip-tools"
 
 run:
 	$(DJANGO_MANAGE) runserver
@@ -51,3 +52,6 @@ lpcu:
 
 sync:
 	pip-sync requirements-local.txt
+
+update:
+	make pcu && make lpcu && make sync
