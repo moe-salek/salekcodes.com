@@ -392,9 +392,7 @@ sqlparse==0.4.4 \
 twisted==24.3.0 \
     --hash=sha256:039f2e6a49ab5108abd94de187fa92377abe5985c7a72d68d0ad266ba19eae63 \
     --hash=sha256:6b38b6ece7296b5e122c9eb17da2eeab3d98a198f50ca9efd00fb03e5b4fd4ae
-    # via
-    #   daphne
-    #   twisted
+    # via daphne
 txaio==23.1.1 \
     --hash=sha256:aaea42f8aad50e0ecfb976130ada140797e9dcb85fad2cf72b0f37f8cefcb490 \
     --hash=sha256:f9a9216e976e5e3246dfd112ad7ad55ca915606b60b84a757ac769bd404ff704
