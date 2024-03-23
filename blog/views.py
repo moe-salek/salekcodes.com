@@ -9,11 +9,7 @@ from blog.models import Post, Tag
 from blog.serializers import PostSerializer, TagSerializer, TagWithPostsSerializer
 
 
-class PostView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class PostView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     lookup_field = 'id'
@@ -25,11 +21,7 @@ class PostView(
         return super().list(request, *args, **kwargs)
 
 
-class TagView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class TagView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     lookup_field = 'id'

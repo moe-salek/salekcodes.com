@@ -1,14 +1,6 @@
 from rest_framework import serializers
 
-from resume_cv.models import (
-    Award,
-    Certificate,
-    Contact,
-    Education,
-    Experience,
-    ResumeCV,
-    Skill,
-)
+from resume_cv.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
 
 
 class SkillSerializer(serializers.ModelSerializer):

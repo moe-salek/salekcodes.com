@@ -50,10 +50,7 @@ class TestCoreUser:
     )
     def test_create_user_email_invalid_fail(self, email):
         assert self.user_class.objects.exists() is False
-        kwargs = {
-            'email': email,
-            'password': self.password,
-        }
+        kwargs = {'email': email, 'password': self.password}
         with pytest.raises(ValidationError) as err:
             self.user_class.objects.create_user(**kwargs)
         expected_error_message = ['Email has invalid format or is empty']
@@ -93,10 +90,7 @@ class TestCoreUser:
     )
     def test_create_user_password_invalid_fail(self, password):
         assert self.user_class.objects.exists() is False
-        kwargs = {
-            'email': self.email,
-            'password': password,
-        }
+        kwargs = {'email': self.email, 'password': password}
         with pytest.raises(ValidationError) as err:
             self.user_class.objects.create_user(**kwargs)
         expected_error_message = [
@@ -108,12 +102,7 @@ class TestCoreUser:
 
     def test_create_user_valid(self):
         assert self.user_class.objects.exists() is False
-        kwargs = {
-            'email': self.email,
-            'password': self.password,
-            'first_name': 'first',
-            'last_name': 'last',
-        }
+        kwargs = {'email': self.email, 'password': self.password, 'first_name': 'first', 'last_name': 'last'}
         created_user = self.user_class.objects.create_user(**kwargs)
         assert self.user_class.objects.exists() is True
         assert self.user_class.objects.count() == 1
@@ -149,12 +138,7 @@ class TestCoreUser:
         assert self.user_class.objects.exists() is False
 
     def test_create_superuser_ok(self):
-        kwargs = {
-            'email': self.email,
-            'password': self.password,
-            'first_name': 'first',
-            'last_name': 'last',
-        }
+        kwargs = {'email': self.email, 'password': self.password, 'first_name': 'first', 'last_name': 'last'}
         assert self.user_class.objects.exists() is False
         created_super_user = self.user_class.objects.create_superuser(**kwargs)
         assert self.user_class.objects.exists() is True

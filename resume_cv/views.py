@@ -4,15 +4,7 @@ from rest_framework import mixins, viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-from resume_cv.models import (
-    Award,
-    Certificate,
-    Contact,
-    Education,
-    Experience,
-    ResumeCV,
-    Skill,
-)
+from resume_cv.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
 from resume_cv.serializers import (
     AwardSerializer,
     CertificateSerializer,
@@ -26,11 +18,7 @@ from resume_cv.serializers import (
 # region skill
 
 
-class SkillView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class SkillView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
     lookup_field = 'id'
@@ -47,11 +35,7 @@ class SkillView(
 # region experience
 
 
-class ExperienceView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class ExperienceView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
     lookup_field = 'id'
@@ -68,11 +52,7 @@ class ExperienceView(
 # region education
 
 
-class EducationView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class EducationView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Education.objects.all()
     serializer_class = EducationSerializer
     lookup_field = 'id'
@@ -89,11 +69,7 @@ class EducationView(
 # region certificate
 
 
-class CertificateView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class CertificateView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Certificate.objects.all()
     serializer_class = CertificateSerializer
     lookup_field = 'id'
@@ -110,11 +86,7 @@ class CertificateView(
 # region award
 
 
-class AwardView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class AwardView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Award.objects.all()
     serializer_class = AwardSerializer
     lookup_field = 'id'
@@ -131,11 +103,7 @@ class AwardView(
 # region contact
 
 
-class ContactView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class ContactView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
     lookup_field = 'id'
@@ -152,11 +120,7 @@ class ContactView(
 # region resumeCV
 
 
-class ResumeCVView(
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
-    viewsets.GenericViewSet,
-):
+class ResumeCVView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = ResumeCV.objects.all()
     serializer_class = ResumeCVSerializer
     lookup_field = 'id'

@@ -10,7 +10,7 @@ def validate_password(password: str, min_length: int = 8) -> None:
     try:
         if not password or not isinstance(password, str):
             raise ValidationError(message)
-        regex = fr'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]{{{min_length},}}$'
+        regex = rf'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]{{{min_length},}}$'
         validator = RegexValidator(regex=regex, message=message)
         validator(password)
     except ValidationError:

@@ -2,12 +2,7 @@ import pytest
 from django.urls import reverse
 
 from blog.models import Post
-from blog.serializers import (
-    AuthorSerializer,
-    ContentSerializer,
-    PostSerializer,
-    TagSerializer,
-)
+from blog.serializers import AuthorSerializer, ContentSerializer, PostSerializer, TagSerializer
 from blog.views import PostView
 
 

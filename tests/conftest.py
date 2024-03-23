@@ -6,15 +6,7 @@ import pytz
 from django.contrib.auth import get_user_model
 
 from blog.models import Post, Tag
-from resume_cv.models import (
-    Award,
-    Certificate,
-    Contact,
-    Education,
-    Experience,
-    ResumeCV,
-    Skill,
-)
+from resume_cv.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
 
 #  region core:
 
@@ -28,12 +20,8 @@ def user_kwargs():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def user(user_kwargs):
-    yield get_user_model().objects.create_user(
-        email=user_kwargs['email'],
-        password=user_kwargs['password'],
-    )
+    yield get_user_model().objects.create_user(email=user_kwargs['email'], password=user_kwargs['password'])
 
 
 # endregion
@@ -47,23 +35,16 @@ def tag_kwargs():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def tag(tag_kwargs):
     yield Tag.objects.create(**tag_kwargs)
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def post_kwargs(user):
-    yield {
-        'author': user,
-        'title': 'Test Title',
-        'content': json.dumps({'delta': 'test', 'html': '<p>test</p>'}),
-    }
+    yield {'author': user, 'title': 'Test Title', 'content': json.dumps({'delta': 'test', 'html': '<p>test</p>'})}
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def post(post_kwargs, tag):
     post = Post.objects.create(**post_kwargs)
     post.tags.add(tag)
@@ -77,14 +58,10 @@ def post(post_kwargs, tag):
 
 @pytest.fixture
 def skill_kwargs():
-    yield {
-        'name': 'test name',
-        'description': 'test desc',
-    }
+    yield {'name': 'test name', 'description': 'test desc'}
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def skill(skill_kwargs):
     yield Skill.objects.create(**skill_kwargs)
 
@@ -102,7 +79,6 @@ def experience_kwargs():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def experience(experience_kwargs):
     yield Experience.objects.create(**experience_kwargs)
 
@@ -120,7 +96,6 @@ def education_kwargs():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def education(education_kwargs):
     yield Education.objects.create(**education_kwargs)
 
@@ -138,22 +113,16 @@ def certificate_kwargs():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def certificate(certificate_kwargs):
     yield Certificate.objects.create(**certificate_kwargs)
 
 
 @pytest.fixture
 def award_kwargs():
-    yield {
-        'title': 'test title',
-        'description': 'test desc',
-        'issued_at': datetime(2024, 1, 1, tzinfo=pytz.utc),
-    }
+    yield {'title': 'test title', 'description': 'test desc', 'issued_at': datetime(2024, 1, 1, tzinfo=pytz.utc)}
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def award(award_kwargs):
     yield Award.objects.create(**award_kwargs)
 
@@ -170,13 +139,11 @@ def contact_kwargs():
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def contact(contact_kwargs):
     yield Contact.objects.create(**contact_kwargs)
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def resume_cv_kwargs(user, contact):
     yield {
         'user': user,
@@ -189,7 +156,6 @@ def resume_cv_kwargs(user, contact):
 
 
 @pytest.fixture
-@pytest.mark.django_db
 def resume_cv(resume_cv_kwargs):
     yield ResumeCV.objects.create(**resume_cv_kwargs)
 

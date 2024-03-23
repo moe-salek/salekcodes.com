@@ -11,11 +11,7 @@ class TestBlogPost:
 
     def test_create_post(self, user):
         quill_content = self.quill_content
-        post = Post.objects.create(
-            author=user,
-            title='Test Title',
-            content=quill_content,
-        )
+        post = Post.objects.create(author=user, title='Test Title', content=quill_content)
 
         post_from_db = Post.objects.get(id=post.id)
         assert post_from_db.author == user
@@ -26,11 +22,7 @@ class TestBlogPost:
         assert post_from_db.tags.count() == 0
 
     def test_add_tags_to_post(self, user):
-        post = Post.objects.create(
-            author=user,
-            title='Test Title',
-            content=self.quill_content,
-        )
+        post = Post.objects.create(author=user, title='Test Title', content=self.quill_content)
         tag1 = Tag.objects.create(name='Test Tag 1')
         tag2 = Tag.objects.create(name='Test Tag 2')
         post.tags.add(tag1, tag2)
@@ -39,15 +31,8 @@ class TestBlogPost:
         assert tag2 in post.tags.all()
 
     def test_post_status(self):
-        assert Post.Status.choices == [
-            ('draft', 'Draft'),
-            ('pub', 'Published'),
-        ]
+        assert Post.Status.choices == [('draft', 'Draft'), ('pub', 'Published')]
 
     def test_save_slug(self, user):
-        post = Post.objects.create(
-            author=user,
-            title='Test Title Sample SLUG',
-            content=self.quill_content,
-        )
+        post = Post.objects.create(author=user, title='Test Title Sample SLUG', content=self.quill_content)
         assert post.slug == 'test-title-sample-slug'
