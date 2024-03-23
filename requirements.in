@@ -7,7 +7,7 @@ markdown
 django-filter
 # server:
 whitenoise
-daphne
+gunicorn
 # rich editor:
 django-quill-editor
 # openapi schema:
