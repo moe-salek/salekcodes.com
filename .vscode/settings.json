@@ -1,0 +1,9 @@
+{
+  "python.analysis.typeCheckingMode": "off",
+  "ruff.format.args": [
+    "--config=./pyproject.toml"
+  ],
+  "ruff.lint.args": [
+    "--config=./pyproject.toml"
+  ]
+}

@@ -652,7 +652,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,venv,virtualenv,osx,linux,windows,jetbrains,visualstudiocode,typings,test,pydev,pycharm,database
 
-.vscode
 requirements-local.txt
 certbot/*
 
