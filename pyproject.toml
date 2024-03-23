@@ -1,35 +1,58 @@
-[tool.black]
-preview = true
+[tool.ruff]
+exclude = [
+    # ruff:
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    # custom fields:
+    "blib2to3",
+    "tests/data",
+    "env",
+    ".coverage",
+    ".pytest_cache",
+    "manage.py",
+]
 line-length = 120
-skip-string-normalization = true
-force-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | venv
-  | env
-  | _build
-  | buck-out
-  | build
-  | dist
-  # The following are specific to Black:
-  | blib2to3
-  | tests/data
-  | profiling
-  # Custom files/folders:
-  | \.coverage
-  | migrations
-  | \.pytest_cache
-  | ./manage.py
-)/
-'''
+indent-width = 4
+target-version = "py311"
 
-[tool.isort]
-profile = "black"
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = true
+line-ending = "auto"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.pytest.ini_options]
 testpaths = "./tests"
@@ -55,13 +78,13 @@ omit = [
 [tool.mypy]
 plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
 exclude = [
-    '.venv',
-    'venv',
-    'env',
-    '.mypy_cache',
-    '.pytest_cache',
-    '.tox',
-    'manage.py',
+    ".venv",
+    "venv",
+    "env",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".tox",
+    "manage.py",
 ]
 warn_return_any = true
 warn_unused_configs = true
@@ -76,8 +99,8 @@ strict = false
 module = ["decouple", "django_quill.*", "phonenumber_field.*"]
 ignore_missing_imports = true
 
-[tool.django-stubs]
-django_settings_module = "tests.test_settings"
-
 [tool.typos]
 files.extend-exclude = [".gitignore"]
+
+[tool.django-stubs]
+django_settings_module = "tests.test_settings"
