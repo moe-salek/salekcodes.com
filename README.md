@@ -6,7 +6,7 @@
 
 **Welcome to SalekCodes**!
 
-SalekCodes is an open-source personal website project currently undergoing active development. It combines the powerful backend capabilities of [Django](https://www.djangoproject.com) with the dynamic and interactive frontend features of [Vue](https://vuejs.org) and [Tailwind](https://tailwindcss.com). The project strives to offer a simple yet visually appealing web experience, which will be unveiled soon!
+SalekCodes is an open-source personal website project currently undergoing active development. It combines the backend capabilities of [Django](https://www.djangoproject.com) with the dynamic and interactive frontend features of [Vue](https://vuejs.org) and [Element Plus](https://element-plus.org/en-US/).
 
 ## Explore Online
 
@@ -67,10 +67,6 @@ python@3.11+ and pip
 ### Make
 
 Run `make` to see the available commands.
-
-## Author Notes
-
-I have chosen not to employ `python-poetry` for package management, citing some various reasons outlined in this video: [some of the reasons](https://youtu.be/Gr9o8MW_pb0).
 
 ## License
 
