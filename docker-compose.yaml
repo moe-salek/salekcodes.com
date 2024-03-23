@@ -8,17 +8,7 @@ services:
     volumes:
       - .:/app/
     ports:
-      - 8001:8001
+      - 8000:8000
     env_file:
       - ./.env
     restart: on-failure
-
-  frontend:
-    build:
-      context: ./frontend/salekcodes-vue/
-      dockerfile: Dockerfile
-    ports:
-      - 8000:8000
-    restart: always
-    depends_on:
-      - backend

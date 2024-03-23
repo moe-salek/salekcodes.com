@@ -3,7 +3,7 @@ version: '3.8'
 services:
   backend:
     ports:
-      - 8001
+      - 8000
     volumes:
       - static_volume:/app/staticfiles
 
