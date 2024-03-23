@@ -6,7 +6,7 @@
 
 **Welcome to SalekCodes**!
 
-SalekCodes is an open-source personal website project currently undergoing active development. It combines the backend capabilities of [Django](https://www.djangoproject.com) with the dynamic and interactive frontend features of [Vue](https://vuejs.org) and [Element Plus](https://element-plus.org/en-US/).
+SalekCodes is an open-source personal website project currently undergoing active development. It combines the backend capabilities of [Django](https://www.djangoproject.com) with the frontend features of [Vue](https://vuejs.org).
 
 ## Explore Online
 
