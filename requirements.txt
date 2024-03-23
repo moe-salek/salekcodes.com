@@ -4,9 +4,9 @@
 #
 #    pip-compile --allow-unsafe --generate-hashes --output-file=requirements.txt --strip-extras requirements.in
 #
-asgiref==3.8.0 \
-    --hash=sha256:30fc07797ad71a0abb8fe34aa03c8043308a8389abc7942d797ea9911540bc28 \
-    --hash=sha256:ec75d9d0f04e2dbfedef1f20ee73a6594af80c333df47cdd31f37e6701f7c53a
+asgiref==3.8.1 \
+    --hash=sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47 \
+    --hash=sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590
     # via
     #   daphne
     #   django
@@ -147,9 +147,9 @@ django-quill-editor==0.1.40 \
     --hash=sha256:26b42aef27168517898c25207d22202402e2816d4a1fa9e3fcc083ae1da0a70c \
     --hash=sha256:276bf3e344531c923b82012f04cec8373c3239d9f7124d4f2bce5f8c5f2b5749
     # via -r requirements.in
-djangorestframework==3.15.0 \
-    --hash=sha256:3f4a263012e1b263bf49a4907eb4cfe14de840a09b1ba64596d01a9c54835919 \
-    --hash=sha256:5fa616048a7ec287fdaab3148aa5151efb73f7f8be1e23a9d18484e61e672695
+djangorestframework==3.15.1 \
+    --hash=sha256:3ccc0475bce968608cf30d07fb17d8e52d1d7fc8bfe779c905463200750cbca6 \
+    --hash=sha256:f88fad74183dfc7144b2756d0d2ac716ea5b4c7c9840995ac3bfd8ec034333c1
     # via
     #   -r requirements.in
     #   drf-spectacular
