@@ -13,4 +13,3 @@ pytz
 # mypy and stubs:
 mypy
 django-stubs
-djangorestframework-stubs

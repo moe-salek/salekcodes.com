@@ -27,13 +27,12 @@ collect:
 	$(DJANGO_MANAGE) collectstatic --noinput
 
 migrate:
-	$(DJANGO_MANAGE) makemigrations core blog resume
+	$(DJANGO_MANAGE) makemigrations core blog
 	$(DJANGO_MANAGE) migrate
 
 delmi:
 	rm -r "./core/migrations/"
 	rm -r "./blog/migrations/"
-	rm -r "./resume/migrations/"
 	rm db.sqlite3
 
 suser:

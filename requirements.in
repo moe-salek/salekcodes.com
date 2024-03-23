@@ -1,16 +1,10 @@
 Django
 # env vars:
 python-decouple
-# drf:
-djangorestframework
-markdown
-django-filter
 # server:
 whitenoise
 gunicorn
 # rich editor:
 django-quill-editor
-# openapi schema:
-drf-spectacular
 # phone number field:
 django-phonenumber-field[phonenumbers]
