@@ -3,7 +3,7 @@ from datetime import datetime
 import pytest
 import pytz
 
-from resume_cv.models import Education
+from resume.models import Education
 
 
 @pytest.mark.django_db

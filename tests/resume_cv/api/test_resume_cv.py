@@ -5,14 +5,14 @@ from rest_framework.test import APIClient
 
 @pytest.mark.django_db
 class TestResumeCVApi:
-    def test_list_resume_cv(self, resume_cv):
+    def test_list_resume(self, resume):
         client = APIClient()
-        url = reverse('resume_cv')
+        url = reverse('resume')
         response = client.get(url)
         assert response.json()[0]['id'] == 1
 
-    def test_retrieve_resume_cv(self, resume_cv):
+    def test_retrieve_resume(self, resume):
         client = APIClient()
-        url = reverse('resume_cv_detail', kwargs={'id': 1})
+        url = reverse('resume_detail', kwargs={'id': 1})
         response = client.get(url)
         assert response.json()['id'] == 1

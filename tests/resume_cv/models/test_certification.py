@@ -1,6 +1,6 @@
 import pytest
 
-from resume_cv.models import Certificate
+from resume.models import Certificate
 
 
 @pytest.mark.django_db

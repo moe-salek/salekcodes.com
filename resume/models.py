@@ -16,7 +16,7 @@ class Experience(Base):
     description = models.TextField(blank=True, default='')
     start_at = models.DateField()
     end_at = models.DateField(blank=True, null=True)
-    skills = models.ManyToManyField('resume_cv.Skill', blank=True)
+    skills = models.ManyToManyField('resume.Skill', blank=True)
     url = models.URLField(blank=True, default='')
 
 
@@ -36,14 +36,14 @@ class Certificate(Base):
     issued_at = models.DateField(blank=True, null=True)
     expire_at = models.DateField(blank=True, null=True)
     url = models.URLField(blank=True, default='')
-    related_experience = models.ForeignKey('resume_cv.Experience', on_delete=models.CASCADE, blank=True, null=True)
+    related_experience = models.ForeignKey('resume.Experience', on_delete=models.CASCADE, blank=True, null=True)
 
 
 class Award(Base):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, default='')
     issued_at = models.DateField(blank=True, null=True)
-    related_experience = models.ForeignKey('resume_cv.Experience', on_delete=models.CASCADE, blank=True, null=True)
+    related_experience = models.ForeignKey('resume.Experience', on_delete=models.CASCADE, blank=True, null=True)
 
 
 class Contact(Base):
@@ -58,11 +58,11 @@ class ResumeCV(Base):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     summary = models.TextField(blank=True, default='')
-    contact = models.ForeignKey('resume_cv.Contact', on_delete=models.SET_NULL, blank=True, null=True)
-    experiences = models.ManyToManyField('resume_cv.Experience', blank=True)
-    educations = models.ManyToManyField('resume_cv.Education', blank=True)
-    certificates = models.ManyToManyField('resume_cv.Certificate', blank=True)
-    awards = models.ManyToManyField('resume_cv.Award', blank=True)
+    contact = models.ForeignKey('resume.Contact', on_delete=models.SET_NULL, blank=True, null=True)
+    experiences = models.ManyToManyField('resume.Experience', blank=True)
+    educations = models.ManyToManyField('resume.Education', blank=True)
+    certificates = models.ManyToManyField('resume.Certificate', blank=True)
+    awards = models.ManyToManyField('resume.Award', blank=True)
     version = models.PositiveIntegerField(default=1)
     is_public = models.BooleanField(default=False)
 

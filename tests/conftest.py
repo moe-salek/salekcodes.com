@@ -6,7 +6,7 @@ import pytz
 from django.contrib.auth import get_user_model
 
 from blog.models import Post, Tag
-from resume_cv.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
+from resume.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
 
 #  region core:
 
@@ -53,7 +53,7 @@ def post(post_kwargs, tag):
 
 # endregion
 
-# region resume_cv
+# region resume
 
 
 @pytest.fixture
@@ -144,7 +144,7 @@ def contact(contact_kwargs):
 
 
 @pytest.fixture
-def resume_cv_kwargs(user, contact):
+def resume_kwargs(user, contact):
     yield {
         'user': user,
         'title': 'test title',
@@ -156,8 +156,8 @@ def resume_cv_kwargs(user, contact):
 
 
 @pytest.fixture
-def resume_cv(resume_cv_kwargs):
-    yield ResumeCV.objects.create(**resume_cv_kwargs)
+def resume(resume_kwargs):
+    yield ResumeCV.objects.create(**resume_kwargs)
 
 
 # endregion

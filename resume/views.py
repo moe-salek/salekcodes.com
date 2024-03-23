@@ -4,8 +4,8 @@ from rest_framework import mixins, viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-from resume_cv.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
-from resume_cv.serializers import (
+from resume.models import Award, Certificate, Contact, Education, Experience, ResumeCV, Skill
+from resume.serializers import (
     AwardSerializer,
     CertificateSerializer,
     ContactSerializer,

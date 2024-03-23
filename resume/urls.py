@@ -1,14 +1,6 @@
 from django.urls import path
 
-from resume_cv.views import (
-    AwardView,
-    CertificateView,
-    ContactView,
-    EducationView,
-    ExperienceView,
-    ResumeCVView,
-    SkillView,
-)
+from resume.views import AwardView, CertificateView, ContactView, EducationView, ExperienceView, ResumeCVView, SkillView
 
 urlpatterns = [
     # region skill
@@ -35,8 +27,8 @@ urlpatterns = [
     path('contact/<int:id>/', ContactView.as_view({'get': 'retrieve'}), name='contact_detail'),
     path('contact/', ContactView.as_view({'get': 'list'}), name='contact'),
     # endregion
-    # region resume_cv
-    path('resume_cv/<int:id>/', ResumeCVView.as_view({'get': 'retrieve'}), name='resume_cv_detail'),
-    path('resume_cv/', ResumeCVView.as_view({'get': 'list'}), name='resume_cv'),
+    # region resume
+    path('resume/<int:id>/', ResumeCVView.as_view({'get': 'retrieve'}), name='resume_detail'),
+    path('resume/', ResumeCVView.as_view({'get': 'list'}), name='resume'),
     # endregion
 ]

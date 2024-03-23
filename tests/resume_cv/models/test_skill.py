@@ -1,6 +1,6 @@
 import pytest
 
-from resume_cv.models import Skill
+from resume.models import Skill
 
 
 @pytest.mark.django_db
