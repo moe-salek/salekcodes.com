@@ -654,5 +654,6 @@ $RECYCLE.BIN/
 
 requirements-local.txt
 certbot/*
+nginx/certbot/*
 
 **/migrations/
