@@ -79,7 +79,7 @@ Run `make` to see the available commands.
 
 Compile styles from input (styles.css) to output file (output.css):
 
-        npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css --minify --watch 
+        npx tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify --watch 
 
 ## License
 
