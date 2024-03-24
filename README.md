@@ -1,12 +1,12 @@
-# SalekCodes
+# Salekcodes
 
 [![main](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml/badge.svg)](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/MohammadSalek/salekcodes.com/main.svg)](https://results.pre-commit.ci/latest/github/MohammadSalek/salekcodes.com/main)
 [![GitHub](https://img.shields.io/github/license/mohammadsalek/salekcodes.com?color=cornflowerblue)](https://github.com/MohammadSalek/salekcodes.com/blob/main/LICENSE)
 
-**Welcome to SalekCodes**!
+**Welcome to Salekcodes**!
 
-SalekCodes is an open-source personal website project currently undergoing active development. It combines the backend capabilities of [Django](https://www.djangoproject.com) with the frontend features of [Vue](https://vuejs.org).
+Salekcodes is my open-source personal website being actively developed using [Django](https://www.djangoproject.com) for its core features and [Tailwind CSS](https://tailwindcss.com/) for design and user interface.
 
 ## Explore Online
 
@@ -18,15 +18,12 @@ Curious to experience the latest build?
 
 1. Create an `.env` file based on the `.env.example` file.
 
-2. Build the images:
+2. Build the images and start the containers:
 
-    `docker compose build`
+        docker compose build
+        docker compose up
 
-3. Start the containers:
-
-    `docker compose up`
-
-4. Visit the site:
+3. Visit the site:
 
     [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
@@ -34,7 +31,8 @@ Curious to experience the latest build?
 
 ### Prerequisites
 
-python@3.11+ and pip
+- python@3.11
+- npm@10.5.0
 
 ### Requirements
 
@@ -42,27 +40,28 @@ python@3.11+ and pip
 
 1. Install [pip-tools](https://github.com/jazzband/pip-tools):
 
-    `pip install pip-tools`
+        pip install pip-tools
 
-2. Compile local project + dev requirements file:
+2. Either use Make:
 
-    `pip-compile --allow-unsafe --strip-extras -q --upgrade -o requirements-local.txt -r requirements.in -r requirements-dev.in`
+        make update
 
-3. Install packages from compiled requirements file:
+    Or compile local project + dev requirements file and install packages from compiled requirements file:
 
-    `pip-sync requirements-local.txt`
+        pip-compile --allow-unsafe --strip-extras -q --upgrade -o requirements-local.txt -r requirements.in -r requirements-dev.in
+        pip-sync requirements-local.txt
 
 ### Test
 
 - Run only tests (via pytest):
 
-    `pytest .`
+        pytest .
 
 - Test suite (pytest, coverage, mypy, etc.):
 
-    `tox -e local`
+        tox -e local
 
-(Refer to `tox l` for more available tox environments.)
+(See `tox l` for more available tox environments.)
 
 ### Make
 
