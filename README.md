@@ -36,6 +36,8 @@ Curious to experience the latest build?
 
 ### Requirements
 
+#### Pip
+
 0. Activate your workspace [virtual environment](https://docs.python.org/3.11/library/venv.html).
 
 1. Install [pip-tools](https://github.com/jazzband/pip-tools):
@@ -50,6 +52,12 @@ Curious to experience the latest build?
 
         pip-compile --allow-unsafe --strip-extras -q --upgrade -o requirements-local.txt -r requirements.in -r requirements-dev.in
         pip-sync requirements-local.txt
+
+#### Npm
+
+Install dependencies:
+
+        npm install
 
 ### Test
 
@@ -66,6 +74,12 @@ Curious to experience the latest build?
 ### Make
 
 Run `make` to see the available commands.
+
+### Tailwind CSS
+
+Compile styles from input (styles.css) to output file (output.css):
+
+        npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css --watch
 
 ## License
 
