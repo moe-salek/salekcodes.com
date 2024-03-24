@@ -1,4 +1,5 @@
-# from django.urls import path
+from django.urls import path
 
-# urlpatterns = [
-# ]
+from blog import views
+
+urlpatterns = [path('', views.echoes, name='echoes')]

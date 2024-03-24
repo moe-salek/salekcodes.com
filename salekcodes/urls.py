@@ -7,7 +7,7 @@ urlpatterns = [
     # core:
     path('', include('core.urls')),
     # blog:
-    # path('api/blog/', include('blog.urls')),
+    path('echoes/', include('blog.urls')),
     # admin panel:
     path('admin/', admin.site.urls),
 ]

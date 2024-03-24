@@ -7,26 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
-      {% block title %}
-        Salekcodes
+      {% block page_title %}
+        salekcodes.com |{% block page_title_span %}
+          Moe Salek
+        {% endblock %}
       {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'css/build.css' %}" />
   </head>
 
-  <body>
-    {% block navbar %}
-
-    {% endblock %}
+  <body class="mb-2 h-screen bg-[#fff0e2]  bg-no-repeat bg-gradient-to-br from-[#fceedb] to-[#fff7f7] antialiased ">
+    <div class="flex flex-col md:flex-row font-sans font-semibold text-xs py-4 md:py-6">
+      <div class="flex justify-center px-6 pb-2 md:w-36">
+        <a class="p-1 font-extrabold nav_item hover:text-slate-400 text-xs tracking-normal" href="/">salekcodes.com</a>
+      </div>
+      <div class="flex justify-center flex-1 px-6 py-1">
+        {% block navbar %}
+          <ul class="flex tracking-normal md:tracking-wider uppercase">
+            <li class="mr-4 md:mr-8">
+              <a class="p-2 nav_item hover:text-slate-400" href="/echoes">Echoes</a>
+            </li>
+            <li class="mr-4 md:mr-8">
+              <a class="p-2 nav_item hover:text-slate-400" href="/about">About</a>
+            </li>
+            <li class="mr-4 md:mr-8">
+              <a class="p-2 nav_item hover:text-slate-400" href="/contact">Contact</a>
+            </li>
+          </ul>
+        {% endblock %}
+      </div>
+      <div class="flex justify-center px-6 pb-2 md:w-36"></div>
+    </div>
 
     {% block content %}
 
     {% endblock %}
 
-    {% block footer %}
-
-    {% endblock %}
-
     <script src="{% static 'js/script.js' %}"></script>
   </body>
+
 </html>
