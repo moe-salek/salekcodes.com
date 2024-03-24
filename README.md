@@ -6,7 +6,7 @@
 
 **Welcome to Salekcodes**!
 
-Salekcodes is my open-source personal website being actively developed using [Django](https://www.djangoproject.com) for its core features and [Tailwind CSS](https://tailwindcss.com/) for design and user interface.
+Salekcodes is my open-source personal website being actively developed using [Django](https://www.djangoproject.com) and [Tailwind CSS](https://tailwindcss.com/).
 
 ## Explore Online
 
