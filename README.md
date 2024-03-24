@@ -20,8 +20,7 @@ Curious to experience the latest build?
 
 2. Build the images and start the containers:
 
-        docker compose build
-        docker compose up
+        docker compose up --build
 
 3. Visit the site:
 
