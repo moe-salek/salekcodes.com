@@ -33,7 +33,7 @@ migrate:
 delmi:
 	rm -r "./core/migrations/"
 	rm -r "./blog/migrations/"
-	rm db.sqlite3
+	rm ./data/db.sqlite3
 
 suser:
 	$(DJANGO_MANAGE) createsuperuser
