@@ -13,10 +13,15 @@
         {% endblock %}
       {% endblock %}
     </title>
+
+    {% block head_seo %}
+      <link rel="canonical" href="https://salekcodes.com/" />
+    {% endblock %}
+
     <link rel="stylesheet" href="{% static 'css/build.css' %}" />
   </head>
 
-  <body class="mb-2 h-screen bg-[#fff0e2]  bg-no-repeat bg-gradient-to-br from-[#fceedb] to-[#fff7f7] antialiased ">
+  <body class="mb-2 h-screen bg-[#fff0e2] bg-no-repeat bg-gradient-to-br from-[#fceedb] to-[#fff7f7] antialiased">
     <div class="flex flex-col md:flex-row font-sans font-semibold text-xs py-4 md:py-6">
       <div class="flex justify-center px-6 pb-2 md:w-36">
         <a class="p-1 font-extrabold nav_item hover:text-slate-400 text-xs tracking-normal" href="/">salekcodes.com</a>
@@ -45,5 +50,4 @@
 
     <script src="{% static 'js/script.js' %}"></script>
   </body>
-
 </html>
