@@ -6,25 +6,16 @@
 
 **Welcome to Salekcodes**!
 
-Salekcodes is my open-source personal website being actively developed using [Django](https://www.djangoproject.com) and [Tailwind CSS](https://tailwindcss.com/).
-
-## Explore Online
-
-Curious to experience the latest build?
+Salekcodes is an open-source personal website being actively developed using [Django](https://www.djangoproject.com) and [Tailwind CSS](https://tailwindcss.com/).
 
 🔗 <https://salekcodes.com>
 
-## Run locally using docker
+## Run via Docker
 
-1. Create an `.env` file based on the `.env.example` file.
-
-2. Build the images and start the containers:
+- Create an `.env` file based on the `.env.example` file.
+- Build the image and run the container:
 
         docker compose up --build
-
-3. Visit the site:
-
-    [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ## Development
 
@@ -37,13 +28,12 @@ Curious to experience the latest build?
 
 #### Pip
 
-0. Activate your workspace [virtual environment](https://docs.python.org/3.11/library/venv.html).
-
-1. Install [pip-tools](https://github.com/jazzband/pip-tools):
+- Activate your workspace [virtual environment](https://docs.python.org/3.11/library/venv.html).
+- Install [pip-tools](https://github.com/jazzband/pip-tools):
 
         pip install pip-tools
 
-2. Either use Make:
+- Either use Make:
 
         make update
 
@@ -60,11 +50,11 @@ Install dependencies:
 
 ### Test
 
-- Run only tests (via pytest):
+- Run only tests (via pytest and xdist plugin):
 
-        pytest .
+        pytest -n auto
 
-- Test suite (pytest, coverage, mypy, etc.):
+- Run the complete test suite (pytest, coverage, mypy, etc.):
 
         tox -e local
 
@@ -78,7 +68,7 @@ Run `make` to see the available commands.
 
 Compile styles from input (styles.css) to output file (output.css):
 
-        npx tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify --watch 
+        npx tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify
 
 ## License
 
