@@ -4,12 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - static_volume:/app/staticfiles
+      - /app/staticfiles:/app/staticfiles
     ports:
       - 8000:8000
     env_file:
       - ./.env
     restart: on-failure
-
-volumes:
-  static_volume:
