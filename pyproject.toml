@@ -1,39 +1,39 @@
 [tool.ruff]
 exclude = [
-    # ruff:
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
-    ".pytest_cache",
-    ".pytype",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "site-packages",
-    "venv",
-    # custom fields:
-    "blib2to3",
-    "tests/data",
-    "env",
-    ".coverage",
-    ".pytest_cache",
-    "manage.py",
+  # ruff:
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".ipynb_checkpoints",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pyenv",
+  ".pytest_cache",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  ".vscode",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "site-packages",
+  "venv",
+  # custom fields:
+  "blib2to3",
+  "tests/data",
+  "env",
+  ".coverage",
+  ".pytest_cache",
+  "manage.py",
 ]
 line-length = 120
 indent-width = 4
@@ -46,10 +46,19 @@ skip-magic-trailing-comma = true
 line-ending = "auto"
 
 [tool.ruff.lint]
-select = ["E4", "E7", "E9", "F"]
-ignore = []
-fixable = ["ALL"]
-unfixable = []
+select = [
+  "E4",
+  "E7",
+  "E9",
+  "F",
+]
+ignore = [
+]
+fixable = [
+  "ALL",
+]
+unfixable = [
+]
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
@@ -58,33 +67,37 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 testpaths = "./tests"
 DJANGO_SETTINGS_MODULE = "tests.test_settings"
 addopts = "--strict-markers"
-filterwarnings = ["ignore:.*pkg_resources:DeprecationWarning"]
+filterwarnings = [
+  "ignore:.*pkg_resources:DeprecationWarning",
+]
 
 [tool.coverage.run]
 omit = [
-    "conftest.py",
-    ".mypy_cache/*",
-    ".pytest_cache/*",
-    ".tox/*",
-    "staticfiles/*",
-    "venv/*",
-    "env/*",
-    ".venv/*",
-    ".env/*",
-    ".git/*",
-    ".eggs/*",
+  "conftest.py",
+  ".mypy_cache/*",
+  ".pytest_cache/*",
+  ".tox/*",
+  "staticfiles/*",
+  "venv/*",
+  "env/*",
+  ".venv/*",
+  ".env/*",
+  ".git/*",
+  ".eggs/*",
 ]
 
 [tool.mypy]
-plugins = ["mypy_django_plugin.main"]
+plugins = [
+  "mypy_django_plugin.main",
+]
 exclude = [
-    ".venv",
-    "venv",
-    "env",
-    ".mypy_cache",
-    ".pytest_cache",
-    ".tox",
-    "manage.py",
+  ".venv",
+  "venv",
+  "env",
+  ".mypy_cache",
+  ".pytest_cache",
+  ".tox",
+  "manage.py",
 ]
 warn_return_any = true
 warn_unused_configs = true
@@ -96,11 +109,17 @@ check_untyped_defs = false
 strict = false
 
 [[tool.mypy.overrides]]
-module = ["decouple", "django_quill.*", "phonenumber_field.*"]
+module = [
+  "decouple",
+  "django_quill.*",
+  "phonenumber_field.*",
+]
 ignore_missing_imports = true
 
 [tool.typos]
-files.extend-exclude = [".gitignore"]
+files.extend-exclude = [
+  ".gitignore",
+]
 
 [tool.django-stubs]
 django_settings_module = "tests.test_settings"
