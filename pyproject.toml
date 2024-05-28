@@ -48,6 +48,9 @@ lint.select = [
   "E9",
   "F",
 ]
+lint.ignore = [
+]
+
 lint.fixable = [
   "ALL",
 ]
@@ -55,8 +58,6 @@ lint.unfixable = [
 ]
 # Allow unused variables when underscore-prefixed.
 lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-lint.ignore = [
-]
 
 [tool.pytest.ini_options]
 testpaths = "./tests"
