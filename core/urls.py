@@ -4,6 +4,6 @@ from core import views
 
 urlpatterns = [
     path('', views.coming_soon, name='index'),  # TODO: change to index later
-    path('contact/', views.contact, name='contact'),
+    path('connect/', views.connect, name='connect'),
     path('about/', views.about, name='about'),
 ]
