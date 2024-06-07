@@ -2,8 +2,12 @@ from typing import Any, Self
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from django.utils import timezone
 
 from core.validators import validate_email, validate_password
+
+
+# region user
 
 
 class UserManager(BaseUserManager):
@@ -49,3 +53,35 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def full_name(self) -> str:
         return f'{self.first_name} {self.last_name}'
+
+
+# endregion
+
+
+# region base
+
+
+class AutoDateTimeField(models.DateTimeField):
+    def pre_save(self, model_instance, add):
+        return timezone.now()
+
+
+class Base(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    modified_at = AutoDateTimeField(default=timezone.now)
+
+    class Meta:
+        abstract = True
+
+
+# endregion
+
+
+class Social(Base):
+    obfuscated_email = models.CharField(max_length=255, default='salek‌[‌dot‌]mo‌e[‌at‌]‌g‌ma‌‌i‌‌l')
+    github_url = models.URLField(default='https://github.com/MohammadSalek/')
+    linkedin_url = models.URLField(default='https://www.linkedin.com/in/moe-salek/')
+    instagram_url = models.URLField(default='')
+    telegram_url = models.URLField(default='')
+    x_url = models.URLField(default='')
