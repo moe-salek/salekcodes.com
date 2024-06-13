@@ -3,7 +3,7 @@ ARG PIP_DISABLE_PIP_VERSION_CHECK=1
 ARG PIP_ROOT_USER_ACTION=ignore
 
 # build stage:
-FROM python:3.11 AS build
+FROM python:3.12 AS build
 
 ARG PIP_TOOLS_VERSION
 ARG PIP_DISABLE_PIP_VERSION_CHECK
@@ -26,7 +26,7 @@ RUN echo "Repo/Container Requirements Differences:"  \
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir ./wheels -r requirements.txt
 
 # production stage:
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 ARG PIP_DISABLE_PIP_VERSION_CHECK
 ARG PIP_ROOT_USER_ACTION

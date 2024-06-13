@@ -21,14 +21,14 @@ Salekcodes is an open-source personal website being actively developed using [Dj
 
 ### Prerequisites
 
-- python@3.11
+- python@3.12
 - npm@10.5.0
 
 ### Requirements
 
 #### Pip
 
-- Activate your workspace [virtual environment](https://docs.python.org/3.11/library/venv.html).
+- Activate your workspace [virtual environment](https://docs.python.org/3.12/library/venv.html).
 - Install [pip-tools](https://github.com/jazzband/pip-tools):
 
         pip install pip-tools
