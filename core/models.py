@@ -80,7 +80,7 @@ class Base(models.Model):
 
 class Social(Base):
     obfuscated_email = models.CharField(max_length=255, default='salek‌[‌dot‌]mo‌e[‌at‌]‌g‌ma‌‌i‌‌l')
-    github_url = models.URLField(default='https://github.com/MohammadSalek/')
+    github_url = models.URLField(default='https://github.com/moe-salek/')
     linkedin_url = models.URLField(default='https://www.linkedin.com/in/moe-salek/')
     instagram_url = models.URLField(default='')
     telegram_url = models.URLField(default='')

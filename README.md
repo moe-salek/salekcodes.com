@@ -1,8 +1,8 @@
 # Salekcodes
 
-[![main](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml/badge.svg)](https://github.com/MohammadSalek/salekcodes.com/actions/workflows/django.yml)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/MohammadSalek/salekcodes.com/main.svg)](https://results.pre-commit.ci/latest/github/MohammadSalek/salekcodes.com/main)
-[![GitHub](https://img.shields.io/github/license/mohammadsalek/salekcodes.com?color=cornflowerblue)](https://github.com/MohammadSalek/salekcodes.com/blob/main/LICENSE)
+[![main](https://github.com/moe-salek/salekcodes.com/actions/workflows/django.yml/badge.svg)](https://github.com/moe-salek/salekcodes.com/actions/workflows/django.yml)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/moe-salek/salekcodes.com/main.svg)](https://results.pre-commit.ci/latest/github/moe-salek/salekcodes.com/main)
+[![GitHub](https://img.shields.io/github/license/moe-salek/salekcodes.com?color=cornflowerblue)](https://github.com/moe-salek/salekcodes.com/blob/main/LICENSE)
 
 **Welcome to Salekcodes**!
 
@@ -72,4 +72,4 @@ Compile styles from input (styles.css) to output file (output.css):
 
 ## License
 
-[MIT License](https://github.com/MohammadSalek/salekcodes.com/blob/main/LICENSE) © [Mohammad Salek](https://github.com/MohammadSalek)
+[MIT License](https://github.com/moe-salek/salekcodes.com/blob/main/LICENSE) © [Moe Salek](https://github.com/moe-salek)
