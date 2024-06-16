@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: .
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -55,9 +53,7 @@ jobs:
 
       - name: "Checkout"
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: .
-
+  
       - name: "Deploy ${{env.ENVIRONMENT}}"
         run: |
           echo "Deploying ${SHA} to ${ENVIRONMENT} environment"
