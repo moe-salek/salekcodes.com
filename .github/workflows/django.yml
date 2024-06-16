@@ -2,9 +2,9 @@ name: main
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -14,17 +14,59 @@ jobs:
       matrix:
         python-version: [3.12]
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        pip install "tox>=4.11"
-    - name: Run Tests
-      run: |
-        tox -r
-      env:
-        DEBUG: True
-        SECRET_KEY: ${{ secrets.DEV_SECRET_KEY }}
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          pip install "tox>=4.15"
+      - name: Run Tests
+        run: |
+          tox -r
+        env:
+          DEBUG: True
+          SECRET_KEY: ${{ secrets.DEV_SECRET_KEY }}
+
+  deployment:
+    name: Deployment
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      SHA: ${{ github.event.deployment.sha }}
+      ENVIRONMENT: ${{ github.event.deployment.environment }}
+      DEPLOY_ID: ${{ github.event.deployment.id}}
+    steps:
+      - name: In-progress Status
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ github.token }}"
+          state: "in_progress"
+          deployment-id: ${{env.DEPLOY_ID}}
+
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .
+
+      - name: "Deploy ${{env.ENVIRONMENT}}"
+        run: |
+          echo "Deploying ${SHA} to ${ENVIRONMENT} environment"
+          echo "This is a test"  # FIXME
+
+      - name: Success Status
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ github.token }}"
+          state: "success"
+          deployment-id: ${{env.DEPLOY_ID}}
+
+      - name: Failure Status
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ github.token }}"
+          state: "failure"
+          deployment-id: ${{env.DEPLOY_ID}}
