@@ -1,6 +1,6 @@
 # Salekcodes
 
-[![main](https://github.com/moe-salek/salekcodes.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/moe-salek/salekcodes.com/actions/workflows/deploy.yml)
+[![main](https://github.com/moe-salek/salekcodes.com/actions/workflows/deploy-stage.yaml/badge.svg)](https://github.com/moe-salek/salekcodes.com/actions/workflows/deploy-stage.yaml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/moe-salek/salekcodes.com/main.svg)](https://results.pre-commit.ci/latest/github/moe-salek/salekcodes.com/main)
 [![GitHub](https://img.shields.io/github/license/moe-salek/salekcodes.com?color=cornflowerblue)](https://github.com/moe-salek/salekcodes.com/blob/main/LICENSE)
 
