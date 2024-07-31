@@ -31,9 +31,9 @@ packaging==24.1 \
     --hash=sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002 \
     --hash=sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124
     # via gunicorn
-phonenumbers==8.13.40 \
-    --hash=sha256:9582752c20a1da5ec4449f7f97542bf8a793c8e2fec0ab57f767177bb8fc0b1d \
-    --hash=sha256:f137c2848b8e83dd064b71881b65680584417efa202177fd330e2f7ff6c68113
+phonenumbers==8.13.42 \
+    --hash=sha256:18acc22ee03116d27b26e990f53806a1770a3e05f05e1620bc09ad187f889456 \
+    --hash=sha256:7137904f2db3b991701e853174ce8e1cb8f540b8bfdf27617540de04c0b7bed5
     # via django-phonenumber-field
 python-decouple==3.8 \
     --hash=sha256:ba6e2657d4f376ecc46f77a3a615e058d93ba5e465c01bbe57289bfb7cce680f \
