@@ -32,18 +32,18 @@ repos:
       - id: djjs
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: 2.1.4
+    rev: 2.2.3
     hooks:
       - id: pyproject-fmt
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.19.0
+    rev: 1.21.0
     hooks:
       - id: django-upgrade
         args: [--target-version, "4.2"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.2
+    rev: v0.6.5
     hooks:
       - id: ruff
         args: [--fix]
