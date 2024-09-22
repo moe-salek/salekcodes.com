@@ -21,8 +21,6 @@ INSTALLED_APPS = [
     # local:
     'core',
     'blog',
-    # external:
-    'django_quill',
 ]
 
 MIDDLEWARE = [

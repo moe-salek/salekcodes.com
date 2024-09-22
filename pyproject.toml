@@ -107,7 +107,6 @@ strict = false
 [[tool.mypy.overrides]]
 module = [
   "decouple",
-  "django_quill.*",
   "phonenumber_field.*",
 ]
 ignore_missing_imports = true

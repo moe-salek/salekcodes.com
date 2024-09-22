@@ -4,7 +4,5 @@ python-decouple
 # server:
 whitenoise
 gunicorn
-# rich editor:
-django-quill-editor
 # phone number field:
 django-phonenumber-field[phonenumbers]
