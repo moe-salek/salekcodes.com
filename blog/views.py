@@ -11,6 +11,12 @@ def echoes(request):
     return render(request, 'blog/echoes.html', ctx)
 
 
+def echoes_archive(request):
+    echo_posts = Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-created_at').all()
+    ctx = {'echo_post_list': echo_posts}
+    return render(request, 'blog/echoes_archive.html', ctx)
+
+
 def echo_unique_page(request, echo_id: str):
     try:
         post = Post.objects.get(id=echo_id)
