@@ -13,3 +13,4 @@ pytz
 # mypy and stubs:
 mypy
 django-stubs
+types-Markdown

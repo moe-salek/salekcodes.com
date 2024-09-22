@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content_body %}
+    <div class="container max-w-[900px] mx-auto">
+        {% include 'blog/echo_post.html' %}
+        <div class="my-8"></div>
+        <hr class="border-slate-200 mx-auto max-w-5xl dark:border-slate-700">
+        <div class="mt-8 mb-16 text-center text-proseLinks text-xs dark:text-proseInvertLinks">
+            <a href="{% url 'echoes' %}" class="font-bold">View all echoes ⭢</a>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -228,6 +228,10 @@ tox==4.20.0 \
     --hash=sha256:21a8005e3d3fe5658a8e36b8ca3ed13a4230429063c5cc2a2fdac6ee5aa0de34 \
     --hash=sha256:5b78a49b6eaaeab3ae4186415e7c97d524f762ae967c63562687c3e5f0ec23d5
     # via -r requirements-dev.in
+types-markdown==3.7.0.20240822 \
+    --hash=sha256:183557c9f4f865bdefd8f5f96a38145c31819271cde111d35557c3bd2069e78d \
+    --hash=sha256:bec91c410aaf2470ffdb103e38438fbcc53689b00133f19e64869eb138432ad7
+    # via -r requirements-dev.in
 types-pyyaml==6.0.12.20240917 \
     --hash=sha256:392b267f1c0fe6022952462bf5d6523f31e37f6cea49b14cee7ad634b6301570 \
     --hash=sha256:d1405a86f9576682234ef83bcb4e6fff7c9305c8b1fbad5e0bcd4f7dbdc9c587

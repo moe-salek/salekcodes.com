@@ -1,8 +1,7 @@
 Django
-# env vars:
 python-decouple
-# server:
 whitenoise
 gunicorn
-# phone number field:
 django-phonenumber-field[phonenumbers]
+markdown
+Pygments

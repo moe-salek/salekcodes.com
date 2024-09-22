@@ -14,18 +14,17 @@ django==5.1.1 \
     # via
     #   -r requirements.in
     #   django-phonenumber-field
-    #   django-quill-editor
 django-phonenumber-field==8.0.0 \
     --hash=sha256:196c917b70c01a98e327f482eb8a4a4a55a29891db551f99078585397370b3ba \
     --hash=sha256:8a560fe1b01b94c9de8cde22bc373b695f023cc6df4baba00264cb079da9f631
     # via -r requirements.in
-django-quill-editor==0.1.42 \
-    --hash=sha256:c25ed551459f1aef6582671f426ee57e42e59d0959bca4e544ea8c92a4a5c941 \
-    --hash=sha256:fc145148a282c20d2072952971c45be82f80901115061a031bc9f74d54602b93
-    # via -r requirements.in
 gunicorn==23.0.0 \
     --hash=sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d \
     --hash=sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec
+    # via -r requirements.in
+markdown==3.7 \
+    --hash=sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2 \
+    --hash=sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803
     # via -r requirements.in
 packaging==24.1 \
     --hash=sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002 \
@@ -35,6 +34,10 @@ phonenumbers==8.13.45 \
     --hash=sha256:53679a95b6060fd5e15467759252c87933d8566d6a5be00995a579eb0e02435b \
     --hash=sha256:bf05ec20fcd13f0d53e43a34ed7bd1c8be26a72b88fce4b8c64fca5b4641987a
     # via django-phonenumber-field
+pygments==2.18.0 \
+    --hash=sha256:786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199 \
+    --hash=sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a
+    # via -r requirements.in
 python-decouple==3.8 \
     --hash=sha256:ba6e2657d4f376ecc46f77a3a615e058d93ba5e465c01bbe57289bfb7cce680f \
     --hash=sha256:d0d45340815b25f4de59c974b855bb38d03151d81b037d9e3f463b0c9f8cbd66
