@@ -3,7 +3,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-builtin-literals
         args: [--no-allow-dict-kwargs]
@@ -24,7 +24,7 @@ repos:
         exclude: ./static/css/build.css
 
   - repo: https://github.com/rtts/djhtml
-    rev: 3.0.6
+    rev: 3.0.7
     hooks:
       - id: djhtml
       - id: djcss
@@ -32,18 +32,18 @@ repos:
       - id: djjs
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: 2.2.4
+    rev: 2.4.3
     hooks:
       - id: pyproject-fmt
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.21.0
+    rev: 1.22.1
     hooks:
       - id: django-upgrade
         args: [--target-version, "4.2"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.7
+    rev: v0.7.0
     hooks:
       - id: ruff
         args: [--fix]
