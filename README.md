@@ -32,13 +32,13 @@ Salekcodes is an open-source personal website being actively developed using [Dj
         pip install -r requirements.txt
 
         # install npm dependencies:
-        npm install
+        cd frontend && npm install
 
 ### TailwindCSS
 
 Minify the CSS:
 
-        npx tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify
+        cd frontend && npx tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify
 
 ### Test
 
