@@ -71,7 +71,7 @@ omit = [
   "conftest.py",
   ".mypy_cache/*",
   ".pytest_cache/*",
-  "staticfiles/*",
+  ".staticfiles/*",
   "venv/*",
   "env/*",
   ".venv/*",

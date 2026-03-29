@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./staticfiles:/app/staticfiles
+      - ./.staticfiles:/app/.staticfiles
       - ./data/:/app/data/
     ports:
       - 8000:8000
