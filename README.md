@@ -20,7 +20,7 @@ Salekcodes is an open-source personal website being actively developed using [Dj
 
 ### Prerequisites
 
-- [python@3.12](https://www.python.org/downloads/)
+- [python@3.13](https://www.python.org/downloads/)
 - [npm@10.8.0](https://nodejs.org/en/download/package-manager)
 
 ### Requirements

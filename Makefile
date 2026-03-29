@@ -8,7 +8,7 @@ help:
 
 upgrade:
 	@echo "- Upgrading pip..."
-	python -m pip install --upgrade pip
+	python -m pip install 'pip < 25.1' # TODO: update after bugfix for pip v25.1
 	@echo "Installing/Upgrading pip-tools..."
 	pip install pip-tools -U || exit 1
 	@echo "Generating requirements files..."
