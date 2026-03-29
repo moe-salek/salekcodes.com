@@ -1,7 +1,0 @@
-Django
-python-decouple
-whitenoise
-gunicorn
-django-phonenumber-field[phonenumbers]
-markdown
-Pygments

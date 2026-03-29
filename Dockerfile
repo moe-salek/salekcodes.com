@@ -10,18 +10,12 @@ ARG PIP_DISABLE_PIP_VERSION_CHECK
 ARG PIP_ROOT_USER_ACTION
 
 WORKDIR /app
-COPY requirements.in requirements.txt ./
+COPY requirements.txt ./
 
 RUN apt-get update && apt-get install -y --no-install-recommends  \
     build-essential \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
-
-RUN pip --no-cache-dir --no-cache install "pip-tools==$PIP_TOOLS_VERSION"
-RUN cp requirements.txt old.requirements.txt \
-    && pip-compile --strip-extras --generate-hashes -q -o requirements.txt requirements.in
-RUN echo "Repo/Container Requirements Differences:"  \
-    && (diff requirements.txt old.requirements.txt || true)
 
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir ./wheels -r requirements.txt
 

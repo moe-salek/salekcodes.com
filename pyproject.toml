@@ -21,7 +21,6 @@ exclude = [
   ".pytype",
   ".ruff_cache",
   ".svn",
-  ".tox",
   ".venv",
   ".vscode",
   "__pypackages__",
@@ -72,7 +71,6 @@ omit = [
   "conftest.py",
   ".mypy_cache/*",
   ".pytest_cache/*",
-  ".tox/*",
   "staticfiles/*",
   "venv/*",
   "env/*",
@@ -92,7 +90,6 @@ exclude = [
   "env",
   ".mypy_cache",
   ".pytest_cache",
-  ".tox",
   "manage.py",
 ]
 warn_return_any = true

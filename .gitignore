@@ -64,7 +64,6 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
-.tox/
 .nox/
 .coverage
 .coverage.*
@@ -655,7 +654,6 @@ $RECYCLE.BIN/
 package-lock.json
 node_modules
 
-requirements-local.txt
 certbot/*
 nginx/certbot/*
 

@@ -29,8 +29,7 @@ Salekcodes is an open-source personal website being actively developed using [Dj
         python -m venv .venv && source .venv/bin/activate
         
         # install python requirements:
-        pip install pip-tools -U 
-        make update
+        pip install -r requirements.txt
 
         # install npm dependencies:
         npm install
@@ -45,7 +44,7 @@ Minify the CSS:
 
 Run the test suite:
 
-        tox -e local
+        pytest
 
 ## License
 
