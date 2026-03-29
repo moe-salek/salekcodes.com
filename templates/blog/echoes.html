@@ -10,10 +10,10 @@
   <div class="container max-w-[900px] mx-auto py-8">
     {% for echo_post in echo_post_list %}
       {% include 'blog/echo_post.html' %}
-      <hr class="border-slate-200 mx-auto max-w-5xl dark:border-slate-700">
+      <hr class="border-slate-200 mx-auto max-w-5xl">
     {% endfor %}
   </div>
-  <div class="mb-16 text-center text-proseLinks text-xs dark:text-proseInvertLinks">
+  <div class="mb-16 text-center text-proseLinks text-xs">
     <a href="{% url 'echoes_archive' %}" class="font-bold">View archive ⭢</a>
   </div>
 
