@@ -3,8 +3,8 @@ module.exports = {
   content: ["./templates/**/*.{html,js}", "./static/**/*.{html,js}"],
   extend: {
     minHeight: {
-      'screen': '100vh',
+      screen: "100vh",
     },
   },
-  plugins: [require('@tailwindcss/typography'),],
-}
+  plugins: [require("@tailwindcss/typography")],
+};

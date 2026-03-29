@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify",
+    "watch:css": "tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --watch",
+    "format": "prettier --write \"./*.js\" \"./static/css/styles.css\" \"./static/js/**/*.js\"",
+    "format:check": "prettier --check \"./*.js\" \"./static/css/styles.css\" \"./static/js/**/*.js\""
+  },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "prettier": "^3.2.5",

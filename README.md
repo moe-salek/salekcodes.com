@@ -25,26 +25,26 @@ Salekcodes is an open-source personal website being actively developed using [Dj
 
 ### Requirements
 
-        # activate virtual environment:
         python -m venv .venv && source .venv/bin/activate
-        
-        # install python requirements:
-        pip install -r requirements.txt
-
-        # install npm dependencies:
-        cd frontend && npm install
+        make install
 
 ### TailwindCSS
 
 Minify the CSS:
 
-        cd frontend && npx tailwindcss -i ./static/css/styles.css -o ./static/css/build.css --minify
+        make build-css
 
 ### Test
 
 Run the test suite:
 
-        pytest
+        make test
+
+### Common commands
+
+        make check
+        make run
+        make collectstatic
 
 ## License
 
