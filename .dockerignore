@@ -150,6 +150,5 @@ stats
 Dockerfile
 Dockerfile.dev
 Dockerfile.prod
-.pre-commit-config.yaml
 docker-compose.yaml
 docker-compose.prod.yaml
