@@ -1,6 +1,5 @@
 [tool.ruff]
 target-version = "py312"
-
 line-length = 120
 indent-width = 4
 exclude = [
@@ -48,73 +47,67 @@ lint.select = [
   "E9",
   "F",
 ]
-lint.ignore = [
-]
-
+lint.ignore = []
 lint.fixable = [
   "ALL",
 ]
-lint.unfixable = [
-]
+lint.unfixable = []
 # Allow unused variables when underscore-prefixed.
 lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-
-[tool.pytest.ini_options]
-testpaths = "./tests"
-DJANGO_SETTINGS_MODULE = "tests.test_settings"
-addopts = "--strict-markers"
-filterwarnings = [
-  "ignore:.*pkg_resources:DeprecationWarning",
-]
-
-[tool.coverage.run]
-omit = [
-  "conftest.py",
-  ".mypy_cache/*",
-  ".pytest_cache/*",
-  ".tox/*",
-  "staticfiles/*",
-  "venv/*",
-  "env/*",
-  ".venv/*",
-  ".env/*",
-  ".git/*",
-  ".eggs/*",
-]
-
-[tool.mypy]
-plugins = [
-  "mypy_django_plugin.main",
-]
-exclude = [
-  ".venv",
-  "venv",
-  "env",
-  ".mypy_cache",
-  ".pytest_cache",
-  ".tox",
-  "manage.py",
-]
-warn_return_any = true
-warn_unused_configs = true
-warn_unused_ignores = true
-show_error_codes = true
-disallow_untyped_calls = true
-disallow_untyped_defs = false
-check_untyped_defs = false
-strict = false
-
-[[tool.mypy.overrides]]
-module = [
-  "decouple",
-  "phonenumber_field.*",
-]
-ignore_missing_imports = true
 
 [tool.typos]
 files.extend-exclude = [
   ".gitignore",
 ]
 
+[tool.mypy]
+exclude = [
+  ".mypy_cache",
+  ".pytest_cache",
+  ".tox",
+  ".venv",
+  "env",
+  "manage.py",
+  "venv",
+]
+disallow_untyped_calls = true
+disallow_untyped_defs = false
+check_untyped_defs = false
+warn_unused_ignores = true
+warn_return_any = true
+strict = false
+plugins = [
+  "mypy_django_plugin.main",
+]
+warn_unused_configs = true
+overrides = [ { module = [
+  "decouple",
+  "phonenumber_field.*",
+], ignore_missing_imports = true } ]
+show_error_codes = true
+
 [tool.django-stubs]
 django_settings_module = "tests.test_settings"
+
+[tool.pytest]
+ini_options.testpaths = "./tests"
+ini_options.addopts = "--strict-markers"
+ini_options.filterwarnings = [
+  "ignore:.*pkg_resources:DeprecationWarning",
+]
+ini_options.DJANGO_SETTINGS_MODULE = "tests.test_settings"
+
+[tool.coverage]
+run.omit = [
+  ".eggs/*",
+  ".env/*",
+  ".git/*",
+  ".mypy_cache/*",
+  ".pytest_cache/*",
+  ".tox/*",
+  ".venv/*",
+  "conftest.py",
+  "env/*",
+  "staticfiles/*",
+  "venv/*",
+]
