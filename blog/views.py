@@ -5,15 +5,17 @@ from blog.models import Post
 ECHOES_PAGE_SIZE = 10
 
 
+def published_posts():
+    return Post.objects.filter(status=Post.Status.PUBLISHED).prefetch_related('tags').order_by('-published_at')
+
+
 def echoes(request):
-    echo_posts = Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-created_at')[:ECHOES_PAGE_SIZE]
-    ctx = {'echo_post_list': echo_posts}
+    ctx = {'echo_post_list': published_posts()[:ECHOES_PAGE_SIZE]}
     return render(request, 'blog/echoes.html', ctx)
 
 
 def echoes_archive(request):
-    echo_posts = Post.objects.filter(status=Post.Status.PUBLISHED).order_by('-created_at')
-    ctx = {'echo_post_list': echo_posts}
+    ctx = {'echo_post_list': published_posts()}
     return render(request, 'blog/echoes_archive.html', ctx)
 
 

@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 
 from core.models import AutoDateTimeField, Base  # noqa: F401 (AutoDateTimeField kept importable for migrations)
@@ -16,10 +17,16 @@ class Post(Base):
     tags = models.ManyToManyField('blog.Tag', related_name='posts', blank=True)
     status = models.CharField(max_length=5, choices=Status.choices, default=Status.DRAFT)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
+    published_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = self._generate_unique_slug()
+        if self.status == self.Status.PUBLISHED and self.published_at is None:
+            self.published_at = timezone.now()
         super().save(*args, **kwargs)
 
     def _generate_unique_slug(self) -> str:
