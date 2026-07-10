@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 
@@ -37,6 +38,9 @@ class Post(Base):
             slug = f'{base}-{suffix}'
             suffix += 1
         return slug
+
+    def get_absolute_url(self):
+        return reverse('echo_unique_page', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

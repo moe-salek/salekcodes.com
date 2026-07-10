@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from blog.views import published_posts
@@ -22,3 +24,8 @@ def about(request):
 def connect(request):
     social = Social.objects.first() or Social()
     return render(request, 'core/connect.html', {'social': social})
+
+
+def robots_txt(request):
+    lines = ['User-agent: *', 'Disallow: /admin/', '', f'Sitemap: {settings.SITE_URL}/sitemap.xml']
+    return HttpResponse('\n'.join(lines), content_type='text/plain')
