@@ -4,7 +4,7 @@
   <article class="echo-entry">
     <div class="echo-entry__meta">
       <div class="echo-entry__timestamp">
-        <a href="{% url 'echo_unique_page' echo_post.id %}" class="echo-entry__timestamp-link">
+        <a href="{% url 'echo_unique_page' echo_post.slug %}" class="echo-entry__timestamp-link">
           {{ echo_post.created_at.year }} / {{ echo_post.created_at|date:"M" }} {{ echo_post.created_at.day }}
           {{ echo_post.created_at|date:"H:i" }} UTC
         </a>

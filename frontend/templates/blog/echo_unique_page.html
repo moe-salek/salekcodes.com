@@ -1,5 +1,7 @@
 {% extends 'base/base.html' %}
 
+{% block page_title_span %}{{ echo_post.title }}{% endblock %}
+
 {% block content_body %}
   <section class="surface-section max-w-[900px]">
     {% include 'blog/echo_post.html' %}

@@ -1,26 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.text import slugify
-from django.utils import timezone
 
-# region base
-
-
-class AutoDateTimeField(models.DateTimeField):
-    def pre_save(self, model_instance, add):
-        return timezone.now()
-
-
-class Base(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    created_at = models.DateTimeField(default=timezone.now)
-    modified_at = AutoDateTimeField(default=timezone.now)
-
-    class Meta:
-        abstract = True
-
-
-# endregion
+from core.models import AutoDateTimeField, Base  # noqa: F401 (AutoDateTimeField kept importable for migrations)
 
 
 class Post(Base):
@@ -37,8 +19,20 @@ class Post(Base):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self) -> str:
+        base = slugify(self.title) or 'echo'
+        slug = base
+        suffix = 2
+        while Post.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f'{base}-{suffix}'
+            suffix += 1
+        return slug
+
+    def __str__(self):
+        return self.title
 
 
 class Tag(Base):
