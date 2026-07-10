@@ -11,3 +11,22 @@
 {% block content_header_description_paragraph %}
   Who I Am & What I Do
 {% endblock %}
+
+{% block content_body %}
+  <section class="surface-section my-8 max-w-[700px]">
+    <div class="content-prose hyphens-auto">
+      <p>
+        I'm <strong>Moe Salek</strong>, a software developer with a backend heart and a soft spot for the frontend. Most of my work lives in <strong>Python</strong> and <strong>Django</strong>, with <strong>TailwindCSS</strong> handling the pixels — the same stack this site is built on, and it's <a href="https://github.com/moe-salek/salekcodes.com" target="_blank" rel="noopener noreferrer">open source</a> if you want to peek under the hood.
+      </p>
+      <p>
+        I care about simple architectures, readable code, and shipping things that keep working after you stop looking at them. When I'm not building, I'm usually reading about how other people build.
+      </p>
+      <p>
+        The notes I publish here are called <a href="{% url 'echoes' %}">Echoes</a> — short, unpolished thoughts on what I'm building, breaking, and learning. Less essay, more signal.
+      </p>
+      <p>
+        Want to say hi? Head over to <a href="{% url 'connect' %}">Connect</a>.
+      </p>
+    </div>
+  </section>
+{% endblock %}
