@@ -5,10 +5,17 @@
     <div class="echo-entry__meta">
       <div class="echo-entry__timestamp">
         <a href="{% url 'echo_unique_page' echo_post.slug %}" class="echo-entry__timestamp-link">
-          {{ echo_post.created_at.year }} / {{ echo_post.created_at|date:"M" }} {{ echo_post.created_at.day }}
-          {{ echo_post.created_at|date:"H:i" }} UTC
+          {{ echo_post.published_at.year }} / {{ echo_post.published_at|date:"M" }} {{ echo_post.published_at.day }}
+          {{ echo_post.published_at|date:"H:i" }} UTC
         </a>
       </div>
+      {% if echo_post.tags.all %}
+        <ul class="echo-entry__tags" aria-label="Tags">
+          {% for tag in echo_post.tags.all %}
+            <li class="echo-entry__tag">#{{ tag.name }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
     <div class="echo-entry__body">
       <div class="rich-prose hyphens-auto">

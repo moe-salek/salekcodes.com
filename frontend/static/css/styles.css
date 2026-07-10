@@ -353,6 +353,14 @@
     @apply md:ml-4 md:min-w-0 md:flex-grow;
   }
 
+  .echo-entry__tags {
+    @apply mt-1 flex flex-wrap gap-x-2 gap-y-1 px-4 md:flex-col md:gap-y-0.5 md:px-0;
+  }
+
+  .echo-entry__tag {
+    @apply text-[11px] font-semibold leading-normal tracking-tight text-amber-700/70 dark:text-amber-200/60;
+  }
+
   .rich-prose {
     @apply prose max-w-none px-4 dark:prose-invert md:px-0;
   }
