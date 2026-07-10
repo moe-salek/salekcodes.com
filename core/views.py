@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
+from blog.views import published_posts
 from core.models import Social
+
+INDEX_ECHOES_COUNT = 5
 
 
 def coming_soon(request):
@@ -8,7 +11,8 @@ def coming_soon(request):
 
 
 def index(request):
-    return render(request, 'core/index.html', {})
+    ctx = {'echo_post_list': published_posts()[:INDEX_ECHOES_COUNT]}
+    return render(request, 'core/index.html', ctx)
 
 
 def about(request):
