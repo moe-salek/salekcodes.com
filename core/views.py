@@ -16,5 +16,5 @@ def about(request):
 
 
 def connect(request):
-    social, _ = Social.objects.get_or_create()
+    social = Social.objects.first() or Social()
     return render(request, 'core/connect.html', {'social': social})
