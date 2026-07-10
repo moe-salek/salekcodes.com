@@ -27,8 +27,8 @@ class TestCoreCustomValidators:
             set(),
             {},
             [],
-            'qwertyuiopasdfghjklzxcvbnm',  # pragma: allowlist secret
-            'QWERTYUIOPASDFGHJKLZXCVBNM',  # pragma: allowlist secret
+            'qwertyuiopasdfghjklzxcvbnm',
+            'QWERTYUIOPASDFGHJKLZXCVBNM',
         ],
     )
     def test_validate_password_invalid(self, invalid_password):
@@ -42,7 +42,7 @@ class TestCoreCustomValidators:
         assert str(err.value) == str(expected_err_msg)
 
     def test_validate_password_valid(self):
-        password = 'Test1234!'  # pragma: allowlist secret
+        password = 'Test1234!'
 
         assert len(password) >= 8
         assert any(char.isupper() for char in password)

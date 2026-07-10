@@ -10,7 +10,7 @@ from blog.models import Post, Tag
 def user_kwargs():
     yield {
         'email': 'test@salekcodes.ir',
-        'password': 'TestPassword123$%^',  # pragma: allowlist secret
+        'password': 'TestPassword123$%^',
     }
 
 

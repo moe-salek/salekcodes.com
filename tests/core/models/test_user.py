@@ -11,7 +11,7 @@ import core.models
 class TestCoreUser:
     user_class = get_user_model()
     email = 'test@salekcodes.ir'
-    password = 'TestPassword123$%^'  # pragma: allowlist secret
+    password = 'TestPassword123$%^'
 
     def test_get_user_model_is_core_user(self):
         assert self.user_class is core.models.User
