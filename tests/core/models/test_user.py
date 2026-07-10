@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 import pytest
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
@@ -128,12 +130,12 @@ class TestCoreUser:
         instance.email = self.email
         assert str(instance) == self.email
 
-    def test_create_superuser_fail(self, mocker):
+    def test_create_superuser_fail(self):
         assert self.user_class.objects.exists() is False
         expected_error = 'mock exception'
-        mocker.patch('core.models.UserManager.create_user', side_effect=Exception(expected_error))
-        with pytest.raises(Exception) as err:
-            self.user_class.objects.create_superuser(email=self.email, password=self.password)
+        with patch('core.models.UserManager.create_user', side_effect=Exception(expected_error)):
+            with pytest.raises(Exception) as err:
+                self.user_class.objects.create_superuser(email=self.email, password=self.password)
         assert str(err.value) == expected_error
         assert self.user_class.objects.exists() is False
 
