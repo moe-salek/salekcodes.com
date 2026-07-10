@@ -1,0 +1,60 @@
+name: ci
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  DEBUG: "True"
+  SECRET_KEY: ${{ secrets.DEV_SECRET_KEY }}
+  ALLOWED_HOSTS: localhost,127.0.0.1
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Django Checks
+        run: python manage.py check
+
+      - name: Run Tests
+        run: pytest
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Dependencies
+        run: npm --prefix frontend ci
+
+      - name: Check Formatting
+        run: npm --prefix frontend run format:check
+
+      - name: Build CSS
+        run: npm --prefix frontend run build:css
