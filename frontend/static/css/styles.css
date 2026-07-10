@@ -310,7 +310,7 @@
   }
 
   .intro-prose {
-    @apply prose prose-lg prose-p:text-center prose-p:italic prose-p:text-slate-600 dark:prose-invert dark:prose-p:text-slate-300;
+    @apply prose prose-lg dark:prose-invert prose-p:text-center prose-p:italic prose-p:text-slate-600 dark:prose-p:text-slate-300;
   }
 
   .intro-prose--left {
@@ -338,7 +338,7 @@
   }
 
   .echo-entry__meta {
-    @apply px-4 md:mr-4 md:basis-[90px] md:flex-grow-0 md:flex-shrink-0 md:px-0;
+    @apply px-4 md:mr-4 md:flex-shrink-0 md:flex-grow-0 md:basis-[90px] md:px-0;
   }
 
   .echo-entry__timestamp {
@@ -354,7 +354,7 @@
   }
 
   .rich-prose {
-    @apply prose max-w-none px-4 md:px-0 dark:prose-invert;
+    @apply prose max-w-none px-4 dark:prose-invert md:px-0;
   }
 
   .rich-prose p,
