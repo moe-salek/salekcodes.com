@@ -13,14 +13,14 @@
 
     <title>
       {% block page_title %}
-        salekcodes.com |{% block page_title_span %}
+        salekcodes.ir |{% block page_title_span %}
           Moe Salek
         {% endblock %}
       {% endblock %}
     </title>
 
     {% block head_seo %}
-      <link rel="canonical" href="https://salekcodes.com/" />
+      <link rel="canonical" href="{{ site_url }}{{ request.path }}" />
     {% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/build.css' %}" />
@@ -55,7 +55,7 @@
     <header class="site-shell">
       <div class="site-header">
         <div class="site-header-column site-header-column--brand">
-          <a class="site-brand" href="{{ index_url }}" aria-label="Go to homepage">salekcodes.com</a>
+          <a class="site-brand" href="{{ index_url }}" aria-label="Go to homepage">salekcodes.ir</a>
         </div>
 
         <div class="site-header-column site-header-column--nav">
