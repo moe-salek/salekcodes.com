@@ -10,7 +10,7 @@ import core.models
 @pytest.mark.django_db
 class TestCoreUser:
     user_class = get_user_model()
-    email = 'test@salekcodes.com'
+    email = 'test@salekcodes.ir'
     password = 'TestPassword123$%^'  # pragma: allowlist secret
 
     def test_get_user_model_is_core_user(self):

@@ -1,13 +1,13 @@
 # Salekcodes
 
-[![main](https://github.com/moe-salek/salekcodes.com/actions/workflows/deploy-stage.yaml/badge.svg)](https://github.com/moe-salek/salekcodes.com/actions/workflows/deploy-stage.yaml)
+[![ci](https://github.com/moe-salek/salekcodes.com/actions/workflows/ci.yaml/badge.svg)](https://github.com/moe-salek/salekcodes.com/actions/workflows/ci.yaml)
 [![GitHub](https://img.shields.io/github/license/moe-salek/salekcodes.com?color=cornflowerblue)](https://github.com/moe-salek/salekcodes.com/blob/main/LICENSE)
 
 **Welcome to Salekcodes**!
 
 Salekcodes is an open-source personal website being actively developed using [Django](https://www.djangoproject.com) and [TailwindCSS](https://tailwindcss.com/).
 
-🔗 <https://salekcodes.com>
+🔗 <https://salekcodes.ir>
 
 ## Run via Docker
 

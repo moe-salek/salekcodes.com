@@ -1,5 +1,3 @@
-import json
-
 import pytest
 from django.contrib.auth import get_user_model
 
@@ -11,7 +9,7 @@ from blog.models import Post, Tag
 @pytest.fixture
 def user_kwargs():
     yield {
-        'email': 'test@salekcodes.com',
+        'email': 'test@salekcodes.ir',
         'password': 'TestPassword123$%^',  # pragma: allowlist secret
     }
 
@@ -38,7 +36,7 @@ def tag(tag_kwargs):
 
 @pytest.fixture
 def post_kwargs(user):
-    yield {'author': user, 'title': 'Test Title', 'content': json.dumps({'delta': 'test', 'html': '<p>test</p>'})}
+    yield {'author': user, 'title': 'Test Title', 'content': 'A **markdown** test echo.'}
 
 
 @pytest.fixture
