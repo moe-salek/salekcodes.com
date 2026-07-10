@@ -7,7 +7,7 @@
 
 Salekcodes is an open-source personal website being actively developed using [Django](https://www.djangoproject.com) and [TailwindCSS](https://tailwindcss.com/).
 
-🔗 <https://salekcodes.ir>
+<!-- 🔗 <https://salekcodes.ir> -->
 
 ## Run via Docker
 
