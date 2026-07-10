@@ -215,3 +215,220 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    background-color: #fff0e2;
+  }
+
+  html.dark {
+    background-color: #0f172a;
+  }
+
+  body {
+    @apply transition-colors duration-300;
+    background-color: transparent;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute left-4 top-4 z-50 -translate-y-16 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition focus:translate-y-0 dark:bg-amber-200 dark:text-slate-950;
+  }
+
+  .site-shell {
+    @apply mx-3 mt-3 rounded-2xl border border-white/40 bg-white/45 shadow-[0_12px_60px_rgba(148,163,184,0.12)] backdrop-blur-md transition-colors duration-300 dark:border-white/10 dark:bg-slate-950/35 dark:shadow-[0_12px_50px_rgba(2,6,23,0.55)];
+  }
+
+  .site-header {
+    @apply flex min-h-[64px] flex-col justify-center gap-y-2 px-2 py-3 font-sans text-xs md:min-h-[72px] md:flex-row md:items-center md:gap-y-0 md:px-4 md:py-4;
+  }
+
+  .site-header-column {
+    @apply flex justify-center px-4;
+  }
+
+  .site-header-column--brand {
+    @apply md:w-36 md:justify-start;
+  }
+
+  .site-header-column--nav {
+    @apply flex-1;
+  }
+
+  .site-header-column--actions {
+    @apply md:w-36 md:justify-end;
+  }
+
+  .site-brand {
+    @apply px-2 py-1 text-xs font-extrabold tracking-normal text-slate-700 transition hover:text-slate-500 dark:text-slate-100 dark:hover:text-amber-200;
+  }
+
+  .site-nav-list {
+    @apply flex flex-wrap items-center justify-center gap-2 md:gap-3;
+  }
+
+  .theme-toggle {
+    @apply relative inline-flex h-8 w-14 items-center rounded-full border border-slate-300/80 bg-white/80 p-1 shadow-sm backdrop-blur-sm transition duration-300 hover:border-slate-400 hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-400/60 dark:border-slate-700 dark:bg-slate-900/85 dark:hover:border-slate-500 dark:hover:bg-slate-900;
+  }
+
+  .theme-toggle-thumb {
+    @apply pointer-events-none relative flex h-6 w-6 translate-x-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 via-orange-200 to-orange-300 text-amber-900 shadow transition duration-300 dark:translate-x-6 dark:from-slate-700 dark:via-slate-600 dark:to-slate-500 dark:text-slate-100;
+  }
+
+  .nav-link {
+    @apply inline-flex h-8 items-center justify-center rounded-full px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600 transition duration-200 hover:bg-white/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/60 dark:hover:text-amber-100;
+  }
+
+  .nav-link-active {
+    @apply bg-white/75 text-slate-900 shadow-sm dark:bg-slate-900/70 dark:text-amber-100;
+  }
+
+  .page-main {
+    @apply pb-8;
+  }
+
+  .page-header {
+    @apply mb-12 mt-0 px-4 md:mb-16 md:mt-16;
+  }
+
+  .page-title {
+    @apply mb-5 mt-7 text-center font-serif text-6xl font-thin tracking-tighter text-slate-600 dark:text-slate-100;
+  }
+
+  .page-title--compact {
+    @apply text-5xl tracking-tight;
+  }
+
+  .page-intro {
+    @apply container mx-auto mt-10 max-w-[625px];
+  }
+
+  .page-intro--narrow {
+    @apply max-w-[600px];
+  }
+
+  .intro-prose {
+    @apply prose prose-lg prose-p:text-center prose-p:italic prose-p:text-slate-600 dark:prose-invert dark:prose-p:text-slate-300;
+  }
+
+  .intro-prose--left {
+    @apply prose-p:text-left;
+  }
+
+  .surface-section {
+    @apply container mx-auto;
+  }
+
+  .section-divider {
+    @apply mx-auto max-w-5xl border-slate-200 dark:border-slate-800;
+  }
+
+  .text-link-row {
+    @apply text-center text-xs text-slate-600 dark:text-slate-300;
+  }
+
+  .text-link {
+    @apply font-bold transition hover:text-slate-900 dark:hover:text-amber-200;
+  }
+
+  .echo-entry {
+    @apply my-8 md:flex md:px-4;
+  }
+
+  .echo-entry__meta {
+    @apply px-4 md:mr-4 md:basis-[90px] md:flex-grow-0 md:flex-shrink-0 md:px-0;
+  }
+
+  .echo-entry__timestamp {
+    @apply my-1 text-xs font-bold leading-normal tracking-tighter text-slate-500 dark:text-slate-400;
+  }
+
+  .echo-entry__timestamp-link {
+    @apply leading-3 transition hover:text-slate-700 dark:hover:text-amber-200;
+  }
+
+  .echo-entry__body {
+    @apply md:ml-4 md:min-w-0 md:flex-grow;
+  }
+
+  .rich-prose {
+    @apply prose max-w-none px-4 md:px-0 dark:prose-invert;
+  }
+
+  .rich-prose p,
+  .rich-prose ul,
+  .rich-prose ol {
+    @apply font-serif text-slate-700 dark:text-slate-300;
+  }
+
+  .rich-prose strong {
+    @apply font-sans text-slate-900 dark:text-slate-100;
+  }
+
+  .rich-prose h1,
+  .rich-prose h2,
+  .rich-prose h3,
+  .rich-prose h4 {
+    @apply font-sans text-slate-900 dark:text-slate-100;
+  }
+
+  .rich-prose h1 {
+    @apply text-base font-bold;
+  }
+
+  .rich-prose a {
+    @apply border-b border-slate-500 font-sans no-underline transition hover:border-slate-200 dark:border-slate-400 dark:hover:border-amber-200;
+  }
+
+  .rich-prose blockquote {
+    @apply text-slate-600 dark:text-slate-300;
+  }
+
+  .content-prose {
+    @apply prose prose-lg mx-auto my-4 px-8 dark:prose-invert;
+  }
+
+  .content-prose p,
+  .content-prose ul,
+  .content-prose ol {
+    @apply font-serif text-slate-700 dark:text-slate-300;
+  }
+
+  .content-prose strong {
+    @apply font-sans text-slate-900 dark:text-slate-100;
+  }
+
+  .content-prose a {
+    @apply border-b-0 border-slate-500 font-sans no-underline transition hover:border-b dark:border-slate-400 dark:hover:border-amber-200;
+  }
+
+  .icon-grid {
+    @apply mx-auto grid list-none grid-cols-[repeat(2,0.1fr)] justify-center justify-items-center gap-3 p-0;
+  }
+
+  .icon-link {
+    @apply transition hover:scale-105;
+  }
+
+  .icon-link--monochrome {
+    @apply text-slate-900 hover:text-slate-700 dark:text-slate-100 dark:hover:text-amber-200;
+  }
+
+  .cta-panel {
+    @apply mx-auto my-2 text-center;
+  }
+
+  .cta-actions {
+    @apply flex flex-col justify-center md:flex-row;
+  }
+
+  .cta-button {
+    @apply mx-auto inline-flex w-[200px] items-center justify-center rounded-lg border border-slate-700 bg-slate-700 px-5 py-3 text-gray-200 transition hover:border-slate-800 hover:bg-zinc-300 hover:text-slate-700 focus:outline-none dark:border-slate-500 dark:bg-slate-200 dark:text-slate-900 dark:hover:border-amber-200 dark:hover:bg-slate-800 dark:hover:text-amber-100 md:mb-0 md:mr-2 md:ms-0;
+  }
+
+  .status-badges {
+    @apply mb-2 content-center justify-items-center md:mb-0 md:mr-2;
+  }
+}

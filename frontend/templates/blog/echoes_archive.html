@@ -1,17 +1,16 @@
 {% extends 'base/base.html' %}
 
-{% block page_title_span %} Echoes {% endblock %}
+{% block page_title_span %}Echoes{% endblock %}
 
-{% block content_header_title %} Echoes {% endblock %}
+{% block content_header_title %}Echoes{% endblock %}
 
 {% block content_header_description_paragraph %}{% include 'blog/echo_motto.html' %}{% endblock %}
 
 {% block content_body %}
-  <div class="container max-w-[900px] mx-auto py-8">
+  <section class="surface-section max-w-[900px] py-8">
     {% for echo_post in echo_post_list %}
       {% include 'blog/echo_post.html' %}
-      <hr class="border-slate-200 mx-auto max-w-5xl">
+      <hr class="section-divider">
     {% endfor %}
-  </div>
-
+  </section>
 {% endblock %}

@@ -1,10 +1,15 @@
 {% load static %}
+{% url 'index' as index_url %}
+{% url 'echoes' as echoes_url %}
+{% url 'about' as about_url %}
+{% url 'connect' as connect_url %}
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff0e2" />
 
     <title>
       {% block page_title %}
@@ -19,56 +24,103 @@
     {% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/build.css' %}" />
+    <script>
+      (() => {
+        const themeColors = {
+          light: '#fff0e2',
+          dark: '#0f172a',
+        };
+
+        try {
+          const savedTheme = window.localStorage.getItem('salekcodes-theme');
+          const isDark = savedTheme === 'dark';
+          const theme = isDark ? 'dark' : 'light';
+          document.documentElement.classList.toggle('dark', isDark);
+          document.documentElement.style.colorScheme = theme;
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.backgroundColor = themeColors[theme];
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColors[theme]);
+        } catch {
+          document.documentElement.dataset.theme = 'light';
+          document.documentElement.style.backgroundColor = themeColors.light;
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColors.light);
+        }
+      })();
+    </script>
   </head>
 
-  <body style="min-height: 100vh;" class="antialiased mb-2 bg-[#fff0e2] bg-no-repeat bg-gradient-to-br from-[#fceedb] to-[#fff7f7]">
-    <div class="flex flex-col md:flex-row font-sans font-semibold text-xs py-4 md:py-6">
-      <div class="flex justify-center px-6 pb-2 md:w-36">
-        <a class="p-1 font-extrabold nav_item hover:text-slate-400 text-xs tracking-normal" href="/">salekcodes.com</a>
-      </div>
-      <div class="flex justify-center flex-1 px-6 py-1">
-        {% block navbar %}
-          <ul class="flex tracking-normal md:tracking-wider uppercase">
-            <li class="mr-4 md:mr-8">
-              <a class="p-2 nav_item hover:text-slate-400" href="/echoes">Echoes</a>
-            </li>
-            <li class="mr-4 md:mr-8">
-              <a class="p-2 nav_item hover:text-slate-400" href="/about">About</a>
-            </li>
-            <li class="mr-4 md:mr-8">
-              <a class="p-2 nav_item hover:text-slate-400" href="/connect">Connect</a>
-            </li>
-          </ul>
-        {% endblock %}
-      </div>
-      <div class="flex justify-center px-6 pb-2 md:w-36"></div>
-    </div>
+  <body class="min-h-screen bg-[#fff0e2] bg-gradient-to-br from-[#fceedb] to-[#fff7f7] bg-no-repeat text-slate-700 antialiased transition-colors duration-300 dark:from-[#0f172a] dark:via-[#111827] dark:to-[#1e293b] dark:text-slate-200">
+    <a class="skip-link" href="#content">Skip to content</a>
 
-    {% block content %}
-      {% block content_header %}
-        <div class="mb-12 mt-0 md:mb-16 md:mt-16 px-4">
-          <h1 class="text-slate-600 font-thin font-serif mt-7 mb-5 text-center text-6xl tracking-tighter">
-            {% block content_header_title %}
+    <header class="site-shell">
+      <div class="site-header">
+        <div class="site-header-column site-header-column--brand">
+          <a class="site-brand" href="{{ index_url }}" aria-label="Go to homepage">salekcodes.com</a>
+        </div>
 
-            {% endblock %}
-          </h1>
-
-          {% block content_header_description %}
-            <div class="container mt-10 max-w-[625px] mx-auto prose prose-lg prose-p:text-center prose-p:italic">
-              <p>
-                {% block content_header_description_paragraph %}
-
-                {% endblock %}
-              </p>
-            </div>
+        <div class="site-header-column site-header-column--nav">
+          {% block navbar %}
+            <nav aria-label="Primary">
+              <ul class="site-nav-list">
+                <li>
+                  <a class="nav-link {% if echoes_url in request.path %}nav-link-active{% endif %}" href="{{ echoes_url }}" {% if echoes_url in request.path %}aria-current="page"{% endif %}>Echoes</a>
+                </li>
+                <li>
+                  <a class="nav-link {% if request.path == about_url %}nav-link-active{% endif %}" href="{{ about_url }}" {% if request.path == about_url %}aria-current="page"{% endif %}>About</a>
+                </li>
+                <li>
+                  <a class="nav-link {% if request.path == connect_url %}nav-link-active{% endif %}" href="{{ connect_url }}" {% if request.path == connect_url %}aria-current="page"{% endif %}>Connect</a>
+                </li>
+              </ul>
+            </nav>
           {% endblock %}
         </div>
-      {% endblock %}
 
-      {% block content_body %}
+        <div class="site-header-column site-header-column--actions">
+          <button type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false" class="theme-toggle">
+            <span class="sr-only">Toggle color theme</span>
+            <span class="pointer-events-none absolute left-[9px] text-[9px] font-bold uppercase tracking-[0.18em] text-amber-700/80 transition dark:text-slate-500">L</span>
+            <span class="pointer-events-none absolute right-[8px] text-[9px] font-bold uppercase tracking-[0.18em] text-slate-400 transition dark:text-sky-200/80">D</span>
+            <span class="theme-toggle-thumb">
+              <svg class="h-3.5 w-3.5 transition duration-300 dark:scale-0 dark:opacity-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.75a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3.5a.75.75 0 0 1 .75-.75Zm0 14.5a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5ZM4.47 5.53a.75.75 0 0 1 1.06 0l1.06 1.06A.75.75 0 0 1 5.53 7.65L4.47 6.59a.75.75 0 0 1 0-1.06Zm13.94 0a.75.75 0 0 1 0 1.06l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 0 1 1.06 0ZM12 18.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 18.5ZM6.59 16.34a.75.75 0 0 1 0 1.06l-1.06 1.06a.75.75 0 0 1-1.06-1.06l1.06-1.06a.75.75 0 0 1 1.06 0Zm10.82 0 1.06 1.06a.75.75 0 1 1-1.06 1.06l-1.06-1.06a.75.75 0 1 1 1.06-1.06ZM2.75 12a.75.75 0 0 1 .75-.75H5a.75.75 0 0 1 0 1.5H3.5a.75.75 0 0 1-.75-.75Zm15.5 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H19a.75.75 0 0 1-.75-.75Z" />
+              </svg>
+              <svg class="absolute h-3.5 w-3.5 scale-0 opacity-0 transition duration-300 dark:scale-100 dark:opacity-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.5 3a.75.75 0 0 1 .69.96a8.15 8.15 0 0 0 9.85 9.85a.75.75 0 0 1 .96.69A9.35 9.35 0 1 1 14.5 3Z" transform="translate(-2 -2)" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
 
+    <main id="content" class="page-main">
+      {% block content %}
+        {% block content_header %}
+          <header class="page-header">
+            <h1 class="page-title">
+              {% block content_header_title %}
+
+              {% endblock %}
+            </h1>
+
+            {% block content_header_description %}
+              <div class="page-intro intro-prose">
+                <p>
+                  {% block content_header_description_paragraph %}
+
+                  {% endblock %}
+                </p>
+              </div>
+            {% endblock %}
+          </header>
+        {% endblock %}
+
+        {% block content_body %}
+
+        {% endblock %}
       {% endblock %}
-    {% endblock %}
+    </main>
 
     <script src="{% static 'js/script.js' %}"></script>
   </body>

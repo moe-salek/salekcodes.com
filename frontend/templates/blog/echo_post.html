@@ -1,35 +1,20 @@
 {% if echo_post %}
+  {% load markdown_utils %}
 
-    {% load markdown_utils %}
-
-    <div class="md:flex md:px-4 my-8">
-        <div class="px-4 md:basis-[90px] md:flex-grow-0 md:flex-shrink-0 md:mr-4 md:px-0">
-            <div class="font-bold my-1 leading-normal text-xs text-proseLinks tracking-tighter">
-                <a href="{% url 'echo_unique_page' echo_post.id %}" class="leading-3">
-                    {{ echo_post.created_at.year }} / {{ echo_post.created_at|date:"M" }} {{ echo_post.created_at.day }}
-                    {{ echo_post.created_at|date:"H:i" }} UTC
-                    <a>
-                    </div>
-                </div>
-                <div class="md:flex-grow md:min-w-0 md:ml-4">
-                    <div class="hyphens-auto
-                                max-w-none
-                                px-4 md:px-0
-                                prose prose-md
-                                prose-a:border-b-[1px] prose-a:border-slate-500 prose-a:font-sans prose-a:no-underline
-                                hover:prose-a:border-b-slate-200
-                                prose-blockquote:text-slate-600
-                                prose-code:prose-a:text-sm prose-code:prose-p:text-sm
-                                prose-h1:font-bold prose-h1:text-base
-                                prose-p:font-serif
-                                prose-p:prose-blockquote:font-sans
-                                prose-strong:font-sans
-                                prose-ol:font-serif
-                                prose-ul:font-serif
-                               ">
-                        {{ echo_post.content|markdown_to_html|safe }}
-                    </div>
-                </div>
-            </div>
+  <article class="echo-entry">
+    <div class="echo-entry__meta">
+      <div class="echo-entry__timestamp">
+        <a href="{% url 'echo_unique_page' echo_post.id %}" class="echo-entry__timestamp-link">
+          {{ echo_post.created_at.year }} / {{ echo_post.created_at|date:"M" }} {{ echo_post.created_at.day }}
+          {{ echo_post.created_at|date:"H:i" }} UTC
+        </a>
+      </div>
+    </div>
+    <div class="echo-entry__body">
+      <div class="rich-prose hyphens-auto">
+        {{ echo_post.content|markdown_to_html|safe }}
+      </div>
+    </div>
+  </article>
 
 {% endif %}
