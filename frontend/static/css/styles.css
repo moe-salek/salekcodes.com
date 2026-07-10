@@ -353,6 +353,14 @@
     @apply md:ml-4 md:min-w-0 md:flex-grow;
   }
 
+  .site-footer {
+    @apply mx-auto mb-6 mt-16 max-w-[900px] px-6 text-center text-xs tracking-wide text-slate-500 dark:text-slate-400;
+  }
+
+  .site-footer-link {
+    @apply font-semibold transition hover:text-slate-700 dark:hover:text-amber-200;
+  }
+
   .echo-entry__tags {
     @apply mt-1 flex flex-wrap gap-x-2 gap-y-1 px-4 md:flex-col md:gap-y-0.5 md:px-0;
   }

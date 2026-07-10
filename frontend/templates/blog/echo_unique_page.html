@@ -2,6 +2,13 @@
 
 {% block page_title_span %}{{ echo_post.title }}{% endblock %}
 
+{% block og_type %}article{% endblock %}
+
+{% block og_extra %}
+  <meta property="og:title" content="{{ echo_post.title }}" />
+  <meta property="article:published_time" content="{{ echo_post.published_at|date:'c' }}" />
+{% endblock %}
+
 {% block content_body %}
   <section class="surface-section max-w-[900px]">
     {% include 'blog/echo_post.html' %}
