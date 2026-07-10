@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block page_title_span %}
+  Not Found
+{% endblock %}
+
+{% block content_header_title %}
+  404
+{% endblock %}
+
+{% block content_header_description_paragraph %}
+  This page doesn't exist — or it echoed away.
+{% endblock %}
+
+{% block content_body %}
+  <div class="mb-16 text-link-row">
+    <a href="{% url 'index' %}" class="text-link">Back to homepage ⭢</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block page_title_span %}
+  Server Error
+{% endblock %}
+
+{% block content_header_title %}
+  500
+{% endblock %}
+
+{% block content_header_description_paragraph %}
+  Something went wrong on my end. Please try again in a bit.
+{% endblock %}
+
+{% block content_body %}
+  <div class="mb-16 text-link-row">
+    <a href="{% url 'index' %}" class="text-link">Back to homepage ⭢</a>
+  </div>
+{% endblock %}
