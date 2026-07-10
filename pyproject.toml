@@ -62,56 +62,8 @@ lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 testpaths = "./tests"
 DJANGO_SETTINGS_MODULE = "tests.test_settings"
 addopts = "--strict-markers"
-filterwarnings = [
-  "ignore:.*pkg_resources:DeprecationWarning",
-]
-
-[tool.coverage.run]
-omit = [
-  "conftest.py",
-  ".mypy_cache/*",
-  ".pytest_cache/*",
-  ".staticfiles/*",
-  "venv/*",
-  "env/*",
-  ".venv/*",
-  ".env/*",
-  ".git/*",
-  ".eggs/*",
-]
-
-[tool.mypy]
-plugins = [
-  "mypy_django_plugin.main",
-]
-exclude = [
-  ".venv",
-  "venv",
-  "env",
-  ".mypy_cache",
-  ".pytest_cache",
-  "manage.py",
-]
-warn_return_any = true
-warn_unused_configs = true
-warn_unused_ignores = true
-show_error_codes = true
-disallow_untyped_calls = true
-disallow_untyped_defs = false
-check_untyped_defs = false
-strict = false
-
-[[tool.mypy.overrides]]
-module = [
-  "decouple",
-  "phonenumber_field.*",
-]
-ignore_missing_imports = true
 
 [tool.typos]
 files.extend-exclude = [
   ".gitignore",
 ]
-
-[tool.django-stubs]
-django_settings_module = "tests.test_settings"

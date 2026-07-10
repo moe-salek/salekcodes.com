@@ -10,7 +10,7 @@ NPM := npm --prefix frontend
 ENV_RUN = set -a; [ -f $(ENV_FILE) ] && . $(ENV_FILE); set +a;
 
 .PHONY: help install install-py install-js build-css watch-css format format-check \
-	check test makemigrations migrate collectstatic run clean-static docker-up docker-down
+	lint lint-fix check test makemigrations migrate collectstatic run clean-static docker-up docker-down
 
 help:
 	@echo "Available targets:"
@@ -21,6 +21,8 @@ help:
 	@echo "  watch-css      Watch and rebuild Tailwind CSS"
 	@echo "  format         Format frontend files with Prettier"
 	@echo "  format-check   Check frontend formatting with Prettier"
+	@echo "  lint           Lint Python files with ruff"
+	@echo "  lint-fix       Lint and auto-fix Python files with ruff"
 	@echo "  check          Run Django system checks"
 	@echo "  test           Run pytest"
 	@echo "  makemigrations Create Django migrations"
@@ -50,6 +52,12 @@ format:
 
 format-check:
 	@$(NPM) run format:check
+
+lint:
+	@$(PYTHON) -m ruff check .
+
+lint-fix:
+	@$(PYTHON) -m ruff check --fix .
 
 check:
 	@$(ENV_RUN) $(DJANGO) check

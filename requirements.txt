@@ -9,3 +9,6 @@ whitenoise>=6.9,<7
 # Testing
 pytest>=8.4,<9
 pytest-django>=4.11,<5
+
+# Dev
+ruff>=0.12,<1
