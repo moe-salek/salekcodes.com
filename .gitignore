@@ -574,9 +574,6 @@ $RECYCLE.BIN/
 
 node_modules
 
-certbot/*
-nginx/certbot/*
-
 # local planning doc:
 PLAN.md
 
