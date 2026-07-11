@@ -2,6 +2,7 @@
 django>=5.2,<6
 gunicorn>=23,<24
 markdown>=3.8,<4
+nh3>=0.2,<1
 pygments>=2.19,<3
 python-decouple>=3.8,<4
 whitenoise>=6.9,<7
