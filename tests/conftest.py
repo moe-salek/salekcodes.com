@@ -46,4 +46,13 @@ def post(post_kwargs, tag):
     yield post
 
 
+@pytest.fixture
+def published_post(user, tag):
+    post = Post.objects.create(
+        author=user, title='Published Title', content='A published **echo**.', status=Post.Status.PUBLISHED
+    )
+    post.tags.add(tag)
+    yield post
+
+
 # endregion
