@@ -10,7 +10,11 @@
   <section class="surface-section max-w-[900px] py-8">
     {% for echo_post in echo_post_list %}
       {% include 'blog/echo_post.html' %}
-      <hr class="section-divider">
+      <hr class="section-divider" />
+    {% empty %}
+      <div class="content-prose">
+        <p>Nothing echoing here yet — first notes are on their way.</p>
+      </div>
     {% endfor %}
   </section>
   <div class="mb-16 text-link-row">

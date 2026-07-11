@@ -10,7 +10,23 @@
   <section class="surface-section max-w-[900px] py-8">
     {% for echo_post in echo_post_list %}
       {% include 'blog/echo_post.html' %}
-      <hr class="section-divider">
+      <hr class="section-divider" />
+    {% empty %}
+      <div class="content-prose">
+        <p>Nothing echoing here yet — first notes are on their way.</p>
+      </div>
     {% endfor %}
   </section>
+
+  {% if page.has_other_pages %}
+    <nav class="pagination-row" aria-label="Archive pages">
+      {% if page.has_previous %}
+        <a class="text-link" href="?page={{ page.previous_page_number }}">⭠ Newer</a>
+      {% endif %}
+      <span class="pagination-status">Page {{ page.number }} of {{ page.paginator.num_pages }}</span>
+      {% if page.has_next %}
+        <a class="text-link" href="?page={{ page.next_page_number }}">Older ⭢</a>
+      {% endif %}
+    </nav>
+  {% endif %}
 {% endblock %}

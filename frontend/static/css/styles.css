@@ -353,6 +353,14 @@
     @apply md:ml-4 md:min-w-0 md:flex-grow;
   }
 
+  .pagination-row {
+    @apply mb-16 mt-2 flex items-center justify-center gap-x-6 text-sm;
+  }
+
+  .pagination-status {
+    @apply text-xs tracking-wide text-slate-500 dark:text-slate-400;
+  }
+
   .site-footer {
     @apply mx-auto mb-6 mt-16 max-w-[900px] px-6 text-center text-xs tracking-wide text-slate-500 dark:text-slate-400;
   }

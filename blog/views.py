@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
@@ -6,6 +7,7 @@ from blog.models import Post
 from blog.templatetags.markdown_utils import markdown_to_html
 
 ECHOES_PAGE_SIZE = 10
+ARCHIVE_PAGE_SIZE = 20
 
 
 def published_posts():
@@ -18,7 +20,9 @@ def echoes(request):
 
 
 def echoes_archive(request):
-    ctx = {'echo_post_list': published_posts()}
+    paginator = Paginator(published_posts(), ARCHIVE_PAGE_SIZE)
+    page = paginator.get_page(request.GET.get('page'))
+    ctx = {'echo_post_list': page.object_list, 'page': page}
     return render(request, 'blog/echoes_archive.html', ctx)
 
 
