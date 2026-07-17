@@ -19,7 +19,15 @@ const storage = {
   },
 };
 
-const getStoredTheme = () => (storage.get() === "dark" ? "dark" : "light");
+const getPreferredTheme = () => {
+  const stored = storage.get();
+  if (stored === "dark" || stored === "light") {
+    return stored;
+  }
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
 
 const updateToggleState = (toggle, isDark) => {
   if (!toggle) {
@@ -59,7 +67,7 @@ const applyTheme = (theme, { persist = true } = {}) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  applyTheme(getStoredTheme(), { persist: false });
+  applyTheme(getPreferredTheme(), { persist: false });
 
   const toggle = document.querySelector("[data-theme-toggle]");
   if (!toggle) {

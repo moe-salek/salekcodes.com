@@ -49,7 +49,8 @@
 
         try {
           const savedTheme = window.localStorage.getItem('salekcodes-theme');
-          const isDark = savedTheme === 'dark';
+          const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
           const theme = isDark ? 'dark' : 'light';
           document.documentElement.classList.toggle('dark', isDark);
           document.documentElement.style.colorScheme = theme;
