@@ -8,6 +8,8 @@ from core.models import AutoDateTimeField, Base  # noqa: F401 (AutoDateTimeField
 
 
 class Post(Base):
+    READING_WPM = 200
+
     class Status(models.TextChoices):
         DRAFT = 'draft', 'Draft'
         PUBLISHED = 'pub', 'Published'
@@ -41,6 +43,18 @@ class Post(Base):
 
     def get_absolute_url(self):
         return reverse('echo_unique_page', kwargs={'slug': self.slug})
+
+    @property
+    def word_count(self) -> int:
+        return len(self.content.split())
+
+    @property
+    def reading_time_minutes(self) -> int:
+        return max(1, round(self.word_count / self.READING_WPM))
+
+    @property
+    def is_long_read(self) -> bool:
+        return self.word_count >= self.READING_WPM
 
     def __str__(self):
         return self.title

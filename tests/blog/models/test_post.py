@@ -32,3 +32,14 @@ class TestBlogPost:
     def test_save_slug(self, user):
         post = Post.objects.create(author=user, title='Test Title Sample SLUG', content='some text')
         assert post.slug == 'test-title-sample-slug'
+
+    def test_reading_time_short_post(self, user):
+        post = Post.objects.create(author=user, title='Short', content='a few words only')
+        assert post.word_count == 4
+        assert post.reading_time_minutes == 1
+        assert post.is_long_read is False
+
+    def test_reading_time_long_post(self, user):
+        post = Post.objects.create(author=user, title='Long', content='word ' * (Post.READING_WPM * 2))
+        assert post.reading_time_minutes == 2
+        assert post.is_long_read is True
