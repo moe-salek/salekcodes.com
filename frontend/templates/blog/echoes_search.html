@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+
+{% block page_title_span %}Search{% endblock %}
+
+{% block content_header_title %}Search{% endblock %}
+
+{% block content_header_description_paragraph %}
+  Search across all published echoes
+{% endblock %}
+
+{% block content_body %}
+  <form class="search-form" action="{% url 'echoes_search' %}" method="get" role="search">
+    <input class="search-input" type="search" name="q" value="{{ query }}" placeholder="Search echoes…" aria-label="Search echoes" />
+    <button class="search-button" type="submit">Search</button>
+  </form>
+
+  <section class="surface-section max-w-[900px] py-8">
+    {% for echo_post in echo_post_list %}
+      {% include 'blog/echo_post.html' %}
+      <hr class="section-divider" />
+    {% empty %}
+      <div class="content-prose">
+        {% if query %}
+          <p>No echoes match “{{ query }}”.</p>
+        {% else %}
+          <p>Type something above to search the echoes.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+
+  {% if page.has_other_pages %}
+    <nav class="pagination-row" aria-label="Search result pages">
+      {% if page.has_previous %}
+        <a class="text-link" href="?q={{ query|urlencode }}&page={{ page.previous_page_number }}">⭠ Newer</a>
+      {% endif %}
+      <span class="pagination-status">Page {{ page.number }} of {{ page.paginator.num_pages }}</span>
+      {% if page.has_next %}
+        <a class="text-link" href="?q={{ query|urlencode }}&page={{ page.next_page_number }}">Older ⭢</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+  <div class="mb-16 text-link-row">
+    <a href="{% url 'echoes_archive' %}" class="text-link">All echoes ⭢</a>
+  </div>
+{% endblock %}

@@ -107,6 +107,79 @@ class TestMarkdownSanitization:
 
 
 @pytest.mark.django_db
+class TestEchoesByTag:
+    def test_lists_only_tagged_published_posts(self, client, user, tag, published_post, post):
+        untagged = Post.objects.create(author=user, title='Untagged', content='body', status=Post.Status.PUBLISHED)
+        body = client.get(f'/echoes/tag/{tag.name}/').content.decode()
+        assert published_post.get_absolute_url() in body
+        assert untagged.get_absolute_url() not in body
+        assert post.get_absolute_url() not in body  # draft, even though tagged
+
+    def test_unknown_tag_404(self, client):
+        assert client.get('/echoes/tag/no-such-tag/').status_code == 404
+
+    def test_empty_state(self, client, tag):
+        response = client.get(f'/echoes/tag/{tag.name}/')
+        assert response.status_code == 200
+        assert b'No echoes carry this tag yet' in response.content
+
+    def test_tag_feed_lists_only_tagged(self, client, user, tag, published_post):
+        untagged = Post.objects.create(author=user, title='Untagged', content='body', status=Post.Status.PUBLISHED)
+        response = client.get(f'/echoes/tag/{tag.name}/feed/')
+        body = response.content.decode()
+        assert response.status_code == 200
+        assert published_post.title in body
+        assert untagged.title not in body
+        assert f'#{tag.name}' in body
+
+    def test_tag_feed_unknown_tag_404(self, client):
+        assert client.get('/echoes/tag/no-such-tag/feed/').status_code == 404
+
+    def test_entry_tags_link_to_tag_page(self, client, published_post, tag):
+        body = client.get('/echoes/').content.decode()
+        assert f'href="/echoes/tag/{tag.name}/"' in body
+
+
+@pytest.mark.django_db
+class TestEchoesSearch:
+    def test_no_query_shows_prompt(self, client):
+        response = client.get('/echoes/search/')
+        assert response.status_code == 200
+        assert b'Type something above to search' in response.content
+
+    def test_matches_title_and_content(self, client, user):
+        by_title = Post.objects.create(
+            author=user, title='Needle Title', content='body', status=Post.Status.PUBLISHED
+        )
+        by_content = Post.objects.create(
+            author=user, title='Other', content='a needle in the body', status=Post.Status.PUBLISHED
+        )
+        miss = Post.objects.create(author=user, title='Hay', content='only hay', status=Post.Status.PUBLISHED)
+
+        body = client.get('/echoes/search/?q=needle').content.decode()
+        assert by_title.get_absolute_url() in body
+        assert by_content.get_absolute_url() in body
+        assert miss.get_absolute_url() not in body
+
+    def test_excludes_drafts(self, client, post):
+        body = client.get('/echoes/search/?q=Test').content.decode()
+        assert post.get_absolute_url() not in body
+
+    def test_no_results_message(self, client):
+        assert 'No echoes match' in client.get('/echoes/search/?q=zzz-nothing').content.decode()
+
+    def test_pagination_preserves_query(self, client, user):
+        for i in range(ARCHIVE_PAGE_SIZE + 1):
+            Post.objects.create(
+                author=user, title=f'Needle {i}', content='body', status=Post.Status.PUBLISHED
+            )
+        first = client.get('/echoes/search/?q=needle').content.decode()
+        assert '?q=needle&page=2' in first
+        second = client.get('/echoes/search/?q=needle&page=2').content.decode()
+        assert second.count('echo-entry__timestamp-link') == 1
+
+
+@pytest.mark.django_db
 class TestFeedAndSitemap:
     def test_feed_lists_published(self, client, published_post, post):
         response = client.get('/echoes/feed/')

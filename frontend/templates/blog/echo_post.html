@@ -12,9 +12,14 @@
       {% if echo_post.tags.all %}
         <ul class="echo-entry__tags" aria-label="Tags">
           {% for tag in echo_post.tags.all %}
-            <li class="echo-entry__tag">#{{ tag.name }}</li>
+            <li>
+              <a class="echo-entry__tag" href="{% url 'echoes_by_tag' tag.name %}">#{{ tag.name }}</a>
+            </li>
           {% endfor %}
         </ul>
+      {% endif %}
+      {% if echo_post.is_long_read %}
+        <div class="echo-entry__reading-time">~{{ echo_post.reading_time_minutes }} min read</div>
       {% endif %}
     </div>
     <div class="echo-entry__body">

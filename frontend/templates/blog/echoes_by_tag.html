@@ -1,10 +1,16 @@
 {% extends 'base/base.html' %}
 
-{% block page_title_span %}Echoes{% endblock %}
+{% block page_title_span %}#{{ tag.name }}{% endblock %}
 
-{% block content_header_title %}Echoes{% endblock %}
+{% block og_extra %}
+  <link rel="alternate" type="application/rss+xml" title="salekcodes.ir — Echoes tagged #{{ tag.name }}" href="{% url 'echoes_by_tag_feed' tag.name %}" />
+{% endblock %}
 
-{% block content_header_description_paragraph %}{% include 'blog/echo_motto.html' %}{% endblock %}
+{% block content_header_title %}#{{ tag.name }}{% endblock %}
+
+{% block content_header_description_paragraph %}
+  Echoes tagged <span class="italic">#{{ tag.name }}</span>
+{% endblock %}
 
 {% block content_body %}
   <section class="surface-section max-w-[900px] py-8">
@@ -13,13 +19,13 @@
       <hr class="section-divider" />
     {% empty %}
       <div class="content-prose">
-        <p>Nothing echoing here yet — first notes are on their way.</p>
+        <p>No echoes carry this tag yet.</p>
       </div>
     {% endfor %}
   </section>
 
   {% if page.has_other_pages %}
-    <nav class="pagination-row" aria-label="Archive pages">
+    <nav class="pagination-row" aria-label="Tag pages">
       {% if page.has_previous %}
         <a class="text-link" href="?page={{ page.previous_page_number }}">⭠ Newer</a>
       {% endif %}
@@ -31,6 +37,7 @@
   {% endif %}
 
   <div class="mb-16 text-link-row">
-    <a href="{% url 'echoes_search' %}" class="text-link">Search echoes ⭢</a>
+    <a href="{% url 'echoes_archive' %}" class="text-link">All echoes ⭢</a>
+    <a href="{% url 'echoes_by_tag_feed' tag.name %}" class="text-link">Tag feed ⭢</a>
   </div>
 {% endblock %}
